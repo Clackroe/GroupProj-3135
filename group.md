@@ -8,15 +8,15 @@
 - **Email Adress:** acole67@uncc.edu
 - **Discord ID:** Clackroe#9238
 
-## ---
-- **Github Username:** 
--  **NinerNet ID:** 
-- **Email Adress:** 
+## Walter Nguyen
+- **Github Username:** Rice4Lyfe
+-  **NinerNet ID:** wnguyen4
+- **Email Adress:** wnguyen4@uncc.edu
 
-## ---
-- **Github Username:** 
--  **NinerNet ID:** 
-- **Email Adress:** 
+## Jacob Smith
+- **Github Username:** JWSmith1
+-  **NinerNet ID:** Jsmit702
+- **Email Adress:** Jsmit702@uncc.edu
 
 ## ---
 - **Github Username:** 
