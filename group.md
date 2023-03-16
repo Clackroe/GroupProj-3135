@@ -18,8 +18,8 @@
 -  **NinerNet ID:** Jsmit702
 - **Email Adress:** Jsmit702@uncc.edu
 
-## ---
-- **Github Username:** 
--  **NinerNet ID:** 
-- **Email Adress:** 
+## Nate Mirman
+- **Github Username:** natemirman
+-  **NinerNet ID:** nmirman
+- **Email Adress:** nmirman@uncc.edu
 
