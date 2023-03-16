@@ -15,7 +15,7 @@
 
 ## Jacob Smith
 - **Github Username:** JWSmith1
--  **NinerNet ID:** Jsmit702
+-  **NinerNet ID:** Jsmit701
 - **Email Adress:** Jsmit702@uncc.edu
 
 ## Nate Mirman
