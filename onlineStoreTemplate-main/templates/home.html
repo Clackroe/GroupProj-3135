@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="row" id="products_page">
+    <div class="col-md-12">
+        <h3>Products</h3>
+        <hr>
+        <div class="row">
+            <form action="/checkout" method="post">
+                <div class="form-group">
+                    <div class="row">
+                        {% for product in products %}
+                        <div class="col-md-4">
+                            <div class="product_card" id="product_card">
+                                <img src="{{ product.image_url }}" class="product_card-img" alt="...">
+                                <div class="product_card-body">
+                                    <h5 class="product_card-title">{{ product.item_name }}</h5>
+                                    <p class="product_card-text">{{ product.info }}</p>
+                                    <p class="product_card-price">${{ product.price }}</p>
+                                    <input type="number" class="quantity" id={{product.id}} name={{product.id}}
+                                        placeholder="0">
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12" id="index_buttons">
+                        <button type="submit" class="btn btn-primary" id="checkout_button">Order</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

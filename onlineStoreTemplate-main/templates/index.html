@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12" id="index_buttons">
+        <a href="/login" class="btn btn-primary" id="login_button">Login</a>
+        <a href="/register" class="btn btn-primary" id="register_button">Register</a>
+    </div>
+</div>
+
+<div class="row" id="products_page">
+    <div class="col-md-12">
+        <h3>Products</h3>
+        <hr>
+        <div class="row">
+            <form action="/checkout" method="post">
+                <div class="form-group">
+                    <div class="row">
+                        {% for product in products %}
+                        <div class="col-md-4">
+                            <div id={{product.id}}>
+                                <div class="product_card" id="product_card">
+                                    <img src="{{ product.image_url }}" class="product_card-img" alt="...">
+                                    <div class="product_card-body">
+                                        <h5 class="product_card-title">{{ product.item_name }}</h5>
+                                        <p class="product_card-text">{{ product.info }}</p>
+                                        <p class="product_card-price">${{ product.price }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    {% endblock %}
