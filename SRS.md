@@ -6,10 +6,10 @@ Fill the document out following the guidelines listed in each section. Maintain 
 
 ## Group Members
 
-* [Name](mailto:email@uncc.edu)
-* [Name](mmailto:email@uncc.edu)
-* [Name](mmailto:email@uncc.edu)
-* [Name](mmailto:email@uncc.edu)
+* [Xander Cole](mailto:acole67@uncc.edu)
+* [Walter Nguyen](mmailto:wnguyen4@uncc.edu)
+* [Jacob Smith](mmailto:jsmit702@uncc.edu
+* [Nate Mirman](mmailto:nmirman@uncc.edu)
 
 ## Revisions
 
@@ -18,6 +18,7 @@ When a change is made to the document, a new revision should be created. The rev
 | Version | Date | Description | Author | Reviewed By |
 | --- | --- | --- | --- | --- |
 | 1.0 | 03/22/23 | Initial draft | [David Gary](mailto:dgary9@uncc.edu) | [David Gary](mailto:dgary@uncc.edu) |
+| 1.01 | 03/22/23 | Introduction | [Walter Nguyen](mmailto:wnguyen4@uncc.edu) | [Walter Nguyen](mmailto:wnguyen4@uncc.edu)
 
 ## Table of Contents
 
