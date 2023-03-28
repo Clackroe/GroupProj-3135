@@ -6,7 +6,7 @@ Fill the document out following the guidelines listed in each section. Maintain 
 
 ## Group Members
 
-* [Name](nmirman@uncc.edu)
+* [Name](mailto:email@uncc.edu)
 * [Name](mmailto:email@uncc.edu)
 * [Name](mmailto:email@uncc.edu)
 * [Name](mmailto:email@uncc.edu)
@@ -34,21 +34,26 @@ In this section, you should give a brief overview of what your project will be. 
 
 ## Requirements
 
-Each group member must supply at least three functional requirements for the project. Each requirement should be written in the following format:
+* **ID:** REQ-1
+  * **Description:** The system should be able to present information on a vehichle based on the image selected by the user.
+  * **Type:** Functional
+  * **Priority:** 1
+  * **Rationale:** The primary purpose of the website is to advertise and atract buyers which requires the ability to select a vehichle and gain more information prior to the purchase.
+  * **Testing:** We will use visual representation via SQL and test methods to check for any possible liablities.
 
-* **ID:** A unique identifier for the requirement. This should be a number that is unique across the entire document (something like REQ-1, REQ-2, etc. but be sure to replace the word `ID` with the unique identifier).
-  * **Description:** A short description of the requirement. This should be a single sentence that describes the requirement. Do not replace the word `Description` with the actual description. Put the description in the space where these instructions are written. Maintain that practice for all future sections.
-  * **Type:** The type of requirement. Should be either `Functional` or `Non-Functional`.
-  * **Priority:** The priority of the requirement. This should be a number between 1 and 5, with 1 being the highest priority and 5 being the lowest priority.
-  * **Rationale:** A short description of why the requirement is important. This should be a single sentence that describes why the requirement is important.
-  * **Testing:** A short description of how the requirement can be tested. This should be a single sentence that describes how the requirement can be tested.
-* **ID:** A unique identifier for the requirement. This should be a number that is unique across the entire document (something like REQ-1, REQ-2, etc. but be sure to replace the word `ID` with the unique identifier).
-  * **Description:** A short description of the requirement. This should be a single sentence that describes the requirement.
-  * **Type:** The type of requirement. Should be either `Functional` or `Non-Functional`.
-  * **Priority:** The priority of the requirement. This should be a number between 1 and 5, with 1 being the highest priority and 5 being the lowest priority.
-  * **Rationale:** A short description of why the requirement is important. This should be a single sentence that describes why the requirement is important.
-  * **Testing:** A short description of how the requirement can be tested. This should be a single sentence that describes how the requirement can be tested.
+* **ID:** REQ-2
+  * **Description:** This feature will allow to user to enter different forms of contact information and store in a database for later  use by the car salesman.
+  * **Type:** Non-Functional.
+  * **Priority:** 3
+  * **Rationale:** This feature is valued because it grants the customer the ability to speak with a salesperson one-on-one via cell phone or email.
+  * **Testing:** We will develope false identities which include name, cell phone, and email to insert into our feature and see if the data is being stored properly via SQL.
 
+* **ID:** REQ-3
+  * **Description:** The system will allow and employee of the dealership to login via given credential, to add, remove, and change vehichle details.
+  * **Type:** Functional
+  * **Priority:** 1
+  * **Rationale:** The ability to change vehichle information is vital to functionality of our systems as new cars will be coming and going and mileage on cars will change after test drives.
+  * **Testing:** Test cases will be developed to ensure methods sending data to and from our data base, will be stored properly. 
 ## Constraints
 
 In this section, you should list any constraints that you have for the project. Each group member must supply at least two constraints. These can be constraints on the project itself, the software system, or the stakeholders. Constraints can be anything that limits the scope of the project. For example, that this project's template code is written using Flask and Python constitutes a constraint on the backend of the project. Constraints can also be things like the required timeline of the project. Be creative.
