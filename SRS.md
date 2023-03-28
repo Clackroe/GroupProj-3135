@@ -8,7 +8,7 @@ Fill the document out following the guidelines listed in each section. Maintain 
 
 * [Xander Cole](mailto:acole67@uncc.edu)
 * [Walter Nguyen](mmailto:wnguyen4@uncc.edu)
-* [Jacob Smith](mmailto:jsmit702@uncc.edu
+* [Jacob Smith](mmailto:jsmit702@uncc.edu)
 * [Nate Mirman](mmailto:nmirman@uncc.edu)
 
 ## Revisions
@@ -51,8 +51,20 @@ Each group member must supply at least three functional requirements for the pro
   * **Testing:** A short description of how the requirement can be tested. This should be a single sentence that describes how the requirement can be tested.
 
 ## Constraints
-
-In this section, you should list any constraints that you have for the project. Each group member must supply at least two constraints. These can be constraints on the project itself, the software system, or the stakeholders. Constraints can be anything that limits the scope of the project. For example, that this project's template code is written using Flask and Python constitutes a constraint on the backend of the project. Constraints can also be things like the required timeline of the project. Be creative.
+* ### Development
+  * Backend must be built using Flask & Python
+  * Frontend must use a combination of HTML and CSS
+* ### Developer Flow
+  * Developers will make all functionality changes, updates, and additions in personal and seperate branches.
+  * When a given change or feature is complete, one user will be assigned to merge and handle all conflicts.
+* ### Planning
+  * All features will be planned out via the [trello](https://trello.com/b/ybAmRdom/project)
+  * All features and changes must be functionally complete **1-2 DAYS** before the subbmission is due on Canvas.
+* ### Merging
+  * Merging into main will be carried out on the [GitHub](https://github.com/Clackroe/School2022Spring) via a pull request.
+  * Merging into main requires at least **1 ADDITIONAL** person to approve and review the pull request.
+* ## Communication
+  * Communication will be carried out via email, or discord.
 
 ## Use Cases
 
