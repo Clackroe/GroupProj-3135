@@ -8,7 +8,7 @@ Fill the document out following the guidelines listed in each section. Maintain 
 
 * [Xander Cole](mailto:acole67@uncc.edu)
 * [Walter Nguyen](mmailto:wnguyen4@uncc.edu)
-* [Jacob Smith](mmailto:jsmit702@uncc.edu
+* [Jacob Smith](mmailto:jsmit702@uncc.edu)
 * [Nate Mirman](mmailto:nmirman@uncc.edu)
 
 ## Revisions
