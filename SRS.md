@@ -19,6 +19,7 @@ When a change is made to the document, a new revision should be created. The rev
 | --- | --- | --- | --- | --- |
 | 1.0 | 03/22/23 | Initial draft | [David Gary](mailto:dgary9@uncc.edu) | [David Gary](mailto:dgary@uncc.edu) |
 | 1.01 | 03/22/23 | Introduction | [Walter Nguyen](mmailto:wnguyen4@uncc.edu) | [Walter Nguyen](mmailto:wnguyen4@uncc.edu)
+| 1.02 | 03/30/23 | Initial Content | Everyone | Everyone
 
 ## Table of Contents
 
