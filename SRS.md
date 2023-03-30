@@ -73,6 +73,9 @@ In this section, you should list user stories for the project. User stories are 
 * **US-1:** // Format for labeling user stories
   * **Customer** // Type of user
   * **Description: As a customer, I want to be able to view information about vehciles such as Year, Make, and Model, Mileage, Price, Color, and other items, so that I can make an informed decision when exploring vehicle options. ** // Description
+* **US-2:** // Format for labeling user stories
+  * **Employee/Admin** // Type of user
+  * **Description: As a employee, I want to be able to add new vehicles to our inventory to be displayed on our webpage, so that customers can see the most recent/new vehicles in stock. ** // Description
 
 ## Glossary
 
