@@ -82,6 +82,48 @@ In this section, you should list use cases for the project. Use cases are a thor
   * **Preconditions:** A list of the preconditions for the use case. This should be a list of the preconditions for the use case, which are the conditions that must be met before the use case can be executed. Continuing with the restaurant example, the customer must have money in their wallet and the cashier must be logged in to the system before the use case of ordering food can be executed.
   * **Postconditions:** A list of the postconditions for the use case. This should be a list of the postconditions for the use case, which are the conditions that must be met after the use case has been executed. Continuing with the restaurant example, the customer must have their food and the cashier must have the customer's money after the use case of ordering food has been executed.
 
+* **Use Case 1((User)Login as User):**
+  * **Description:** Someone with an account will be able to login to the website in order to make a valid purchase.
+  * **Actors:** Someone that is wishing to go through the website and is already a valid user.
+  * **Preconditions:** The person must already have an account created through the website with their login details.
+  * **Postconditions:** The user should be able to successfully sign in through the site and be able to access all of the website's functions.
+
+* **Use Case 2((User and Admin)Purchase a Car):**
+  * **Description:** Someone with an account should be able to purchase a car through the website.
+  * **Actors:** A customer wishing to purchase a car through the website and has made an account.
+  * **Preconditions:** Customer should already have an account, payment and insurance details, a car selected for purchasing, and the location for where they want to pick up their car.
+  * **Postconditions:** An order is processed and the user should be expecting the car while the website should be expecting payment information on their end.
+
+* **Use Case 3((User and Admin)Selling a Car):**
+  * **Description:** Anyone with an account should be able to sell the car.
+  * **Actors:** A person with an account whether that would be the average consumer or employee.
+  * **Preconditions:** Someone should have an account, a car to sell, where the car is locally, the car details, and 
+  * **Postconditions:** A list of the postconditions for the use case. This should be a list of the postconditions for the use case, which are the conditions that must be met after the use case has been executed. Continuing with the restaurant example, the customer must have their food and the cashier must have the customer's money after the use case of ordering food has been executed.
+
+* **Use Case 4((Admin)Login as employee):**
+  * **Description:** Any one working for this website should be able to sign in the website as an employee
+  * **Actors:** Someone that is working in the company already should be able to login as an employee
+  * **Preconditions:** Employee should already have an account made and ready to go through with their creditentials.
+  * **Postconditions:** Employee should be able to access the website and have full management for the website.
+
+* **Use Case 5((User and Admin)Create account):**
+  * **Description:** Someone should be able to create an account from the website that keeps track of basic user data such as purchase and sale history, keep a record of what cars they have, interact with other users, and be able to get notified about any additional information.
+  * **Actors:** A everyone that is the consumer and the employees should be able to create an account.
+  * **Preconditions:** Valid Email account in order to register into the system
+  * **Postconditions:** Consumer will result in having their account created.
+
+* **Use Case 6((User)Compare Car Specs):**
+  * **Description:** A user should be able to take 2 cars on the website and compare specifications with each other. This also includes comparing features, what type of car it is, mileage(if used), etc.
+  * **Actors:** Someone that is wishing to purchase a car or wants to compare cars. They do not need an account to do this.
+  * **Preconditions:** A list of the preconditions for the use case. This should be a list of the preconditions for the use case, which are the conditions that must be met before the use case can be executed. Continuing with the restaurant example, the customer must have money in their wallet and the cashier must be logged in to the system before the use case of ordering food can be executed.
+  * **Postconditions:** A list of the postconditions for the use case. This should be a list of the postconditions for the use case, which are the conditions that must be met after the use case has been executed. Continuing with the restaurant example, the customer must have their food and the cashier must have the customer's money after the use case of ordering food has been executed.
+
+* **Use Case 7((User and Admin)See Purchase History):**
+  * **Description:** A user should be able to see what cars they have purchased in the past, where they got it from, price, purchase date, warranty information, brand, and other additional information if needed.
+  * **Actors:** A list of the actors that are involved in the use case. Only include the actors that are directly involved. Actors are the people or things that interact with the system. For example, when ordering at a fast food restaurant, one might have the following actors: the customer, the cashier, and the cook. But only the customer and the cashier are directly involved in the use case of ordering food. The cook is not directly involved in the use case of ordering food.
+  * **Preconditions:** A list of the preconditions for the use case. This should be a list of the preconditions for the use case, which are the conditions that must be met before the use case can be executed. Continuing with the restaurant example, the customer must have money in their wallet and the cashier must be logged in to the system before the use case of ordering food can be executed.
+  * **Postconditions:** A list of the postconditions for the use case. This should be a list of the postconditions for the use case, which are the conditions that must be met after the use case has been executed. Continuing with the restaurant example, the customer must have their food and the cashier must have the customer's money after the use case of ordering food has been executed.
+
 ## User Stories
 
 In this section, you should list user stories for the project. User stories are a short description of how a user will be interacting with the system. Each group member must supply at least two user stories. Each user story should be written in the following format: 
