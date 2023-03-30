@@ -52,6 +52,7 @@ Each group member must supply at least three functional requirements for the pro
 
 ## Constraints
 * ### Development
+  * Adequate comments must be written when not clearly understandable at first glancce.
   * Backend must be built using Flask & Python
   * Frontend must use a combination of HTML and CSS
 * ### Developer Flow
