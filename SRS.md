@@ -31,7 +31,7 @@ When a change is made to the document, a new revision should be created. The rev
 
 ## Introduction
 
-In this section, you should give a brief overview of what your project will be. Describe the software system you are building and what problems it solves. You should also give a short description of the stakeholders (users of the system) and what their needs are. There is no set formatting requirement, but you should maintain a consistent structure across future sections. Not all members must contribute to this section.
+Our software aims to be a website for a car dealership with two primary users, employees and customers, enabling cusutomers to have quick access to vehicle information and employees the ability to add new inventory or edit exsisting inventory. Employees/Admin users will have the ability to edit information about vehicles for sale and add new vehicles. Customers will be able to view all information, and contact the dealership for more information or to learn about purchase options.
 
 ## Requirements
 
@@ -79,11 +79,16 @@ In this section, you should list use cases for the project. Use cases are a thor
 
 ## User Stories
 
-In this section, you should list user stories for the project. User stories are a short description of how a user will be interacting with the system. Each group member must supply at least two user stories. Each user story should be written in the following format:
+In this section, you should list user stories for the project. User stories are a short description of how a user will be interacting with the system. Each group member must supply at least two user stories. Each user story should be written in the following format: 
 
-* **ID:** A unique identifier for the user story. This should be a number that is unique across the entire document (something like US-1, US-2, etc. but be sure to replace the word `ID` with the unique identifier).
-  * **Type of User:** The type of user that the user story is for. This should be a single word that describes the type of user. For example, a user story for a customer might be `Customer` and a user story for an administrator might be `Admin`.
-  * **Description:** A description of the user story that gives a narrative from that user's perspective. This can be any length, but it must paint the picture of what the user wants to do, how they intend to do it, why they want to, and what they expect to happen.
+//Example : "As a "person", I "want to", "so that" xyz."
+
+* **US-1:** // Format for labeling user stories
+  * **Customer** // Type of user
+  * **Description: As a customer, I want to be able to view information about vehciles such as Year, Make, and Model, Mileage, Price, Color, and other items, so that I can make an informed decision when exploring vehicle options. ** // Description
+* **US-2:** // Format for labeling user stories
+  * **Employee/Admin** // Type of user
+  * **Description: As a employee, I want to be able to add new vehicles to our inventory to be displayed on our webpage, so that customers can see the most recent/new vehicles in stock. ** // Description
 
 ## Glossary
 
