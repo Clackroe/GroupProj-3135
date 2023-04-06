@@ -1,6 +1,5 @@
 from authentication.authTools import hash_password
 
-
 def test_hash_password_generates_salt():
     """
     Tests that the hash_password function generates a salt when one is not provided.
