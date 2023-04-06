@@ -1,0 +1,18 @@
+@startuml login
+actor Customer
+boundary "System" as system
+control "Sessions" as sessions
+control "Authentication" as auth
+Customer -> system: Login
+activate system
+system -> auth: login_pipeline(username, password)
+activate auth
+auth --> system: True
+deactivate auth
+system -> sessions: add_new_session(username, db)
+activate sessions
+sessions --> system: None
+deactivate sessions
+system -> system: redirect to home page
+deactivate system
+@enduml
