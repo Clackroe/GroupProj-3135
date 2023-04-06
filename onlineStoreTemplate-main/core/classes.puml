@@ -1,0 +1,24 @@
+@startuml classes
+set namespaceSeparator none
+class "Sessions" as core.session.Sessions #aliceblue {
+  sessions : dict
+  add_new_session(username: str, db: Database) -> None
+  get_all_sessions() -> dict
+  get_session(username: str) -> UserSession
+  remove_session(username: str) -> None
+}
+class "UserSession" as core.session.UserSession #aliceblue {
+  cart : dict
+  date : NoneType, datetime
+  db : Database
+  total_cost : int
+  username : str
+  add_new_item(id: str, name: str, price: int, quantity: int, discount: float, tax_rate: float) -> None
+  empty_cart() -> dict
+  is_item_in_cart(id: str) -> bool
+  remove_item(id: str) -> None
+  submit_cart() -> None
+  update_item_quantity(id: str, change_to_quantity: int) -> None
+  update_total_cost() -> None
+}
+@enduml
