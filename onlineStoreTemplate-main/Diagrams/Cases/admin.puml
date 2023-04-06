@@ -1,6 +1,6 @@
-@startuml customer
+@startuml admin
 left to right direction
-actor Customer
+actor admin
 rectangle "System" as system {
   (Login)
   (View inventory)
@@ -11,12 +11,12 @@ rectangle "System" as system {
   (View customers)
   (Logout)
 }
-Customer --> (Login)
-Customer --> (View inventory)
-Customer --> (Remove vehicle)
-Customer --> (Add vehicle)
-Customer --> (Edit vehicle specs)
-Customer --> (View purchases)
-Customer --> (View customers)
-Customer --> (Logout)
+admin --> (Login)
+admin --> (View inventory)
+admin --> (Remove vehicle)
+admin --> (Add vehicle)
+admin --> (Edit vehicle specs)
+admin --> (View purchases)
+admin --> (View customers)
+admin --> (Logout)
 @enduml
