@@ -1,0 +1,24 @@
+@startuml customer
+left to right direction
+actor Customer
+rectangle "System" as system {
+  (Login)
+  (Register)
+  (Purchase vehicle)
+  (View inventory)
+  (View vehicle specifics)
+  (Compare vehicles)
+  (Request to sell)
+  (View purchase history)
+  (Logout)
+}
+Customer --> (Login)
+Customer --> (Register)
+Customer --> (Purchase vehicle)
+Customer --> (View inventory)
+Customer --> (View vehicle specifics)
+Customer --> (Compare vehicles)
+Customer --> (Request to sell)
+Customer --> (View purchase history)
+Customer --> (Logout)
+@enduml

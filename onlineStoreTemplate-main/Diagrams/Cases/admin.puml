@@ -1,0 +1,22 @@
+@startuml admin
+left to right direction
+actor admin
+rectangle "System" as system {
+  (Login)
+  (View inventory)
+  (Remove vehicle)
+  (Add vehicle)
+  (Edit vehicle specs)
+  (View purchases)
+  (View customers)
+  (Logout)
+}
+admin --> (Login)
+admin --> (View inventory)
+admin --> (Remove vehicle)
+admin --> (Add vehicle)
+admin --> (Edit vehicle specs)
+admin --> (View purchases)
+admin --> (View customers)
+admin --> (Logout)
+@enduml
