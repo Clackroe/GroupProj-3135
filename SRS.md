@@ -23,12 +23,16 @@ When a change is made to the document, a new revision should be created. The rev
 
 ## Table of Contents
 
-1. [Introduction](#introduction)
-2. [Requirements](#requirements)
-3. [Constraints](#constraints)
-4. [Use Cases](#use-cases)
-5. [User Stories](#user-stories)
-6. [Glossary](#glossary)
+- [Software Requirements Specification Document](#software-requirements-specification-document)
+  - [Group Members](#group-members)
+  - [Revisions](#revisions)
+  - [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [Requirements](#requirements)
+  - [Constraints](#constraints)
+  - [Use Cases](#use-cases)
+  - [User Stories](#user-stories)
+  - [Glossary](#glossary)
 
 ## Introduction
 
@@ -112,6 +116,7 @@ In this section, you should list use cases for the project. Use cases are a thor
   * **Actors:** A everyone that is the consumer and the employees should be able to create an account.
   * **Preconditions:** Valid Email account in order to register into the system
   * **Postconditions:** Consumer will result in having their account created.
+  * **Postconditions:** Admins and employees will be able to create new admin accounts via an encrypted key
 
 * **Use Case 6((User)Compare Car Specs):**
   * **Description:** A user should be able to take 2 cars on the website and compare specifications with each other. This also includes comparing features, what type of car it is, mileage(if used), etc.
