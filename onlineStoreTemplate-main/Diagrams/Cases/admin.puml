@@ -3,6 +3,7 @@ left to right direction
 actor admin
 rectangle "System" as system {
   (Login)
+  (Register *With Key*)
   (View inventory)
   (Remove vehicle)
   (Add vehicle)
