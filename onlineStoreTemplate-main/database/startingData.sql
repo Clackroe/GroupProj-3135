@@ -10,6 +10,7 @@ VALUES ('llamport', '9171d14954eeda4e70777c23d98e349818125cdaeb884ff97ebf8cc0a9c
 INSERT into `users` (`username`, `password_hash`, `email`, `first_name`, `last_name`)
 VALUES ('bliskov', '1e4b9ae956cad1385cfa6fffd8323dd16c3fe18c54e6447e49bddef2138d042e84e1505a541c6ef19a5026e684b2559efd366145870a0a8d4d4173c0877f6cd2', 'barbara@thor.com', 'Barbara', 'Liskov');
 
+/*
 INSERT into `inventory` (`item_name`, `info`, `price`, `stock`, `image_url`, `category`)
 VALUES ('Apples', 'An edible cultivation of the Malus genus.', 2.00, 100, 'static/images/apple.jpeg', 'Fruit');
 
@@ -18,6 +19,7 @@ VALUES ('Bananas', 'A long curved fruit which grows in clusters and has soft pul
 
 INSERT into `inventory` (`item_name`, `info`, `price`, `stock`, `image_url`, `category`)
 VALUES ('Mangos', 'The best fruit on the planet.', 4.00, 100, 'static/images/mango.jpeg', 'Fruit');
+*/ 
 
 INSERT into `sales` (`transaction_id`, `username`, `item_id`, `quantity`, `sale_date`, `cost`)
 VALUES ('1', 'aturing', '1', 10, '2022-12-21 7:30:30', 5.50);
@@ -27,3 +29,29 @@ VALUES ('2', 'dritchie', '2', 10, '2022-12-21 7:30:30', 5.50);
 
 INSERT into `sales` (`transaction_id`, `username`, `item_id`, `quantity`, `sale_date`, `cost`)
 VALUES ('3', 'llamport', '3', 10, '2022-12-21 7:30:30', 5.50);
+/*
+INSERT into `inventory` (`make`, 'model' ,`mileage`, `price`, vin ,`color`, `image_url`, `body_style`)
+VALUES ('car make', 'car model', XXXX , XXXX , XXXX ,color str, 'image path', 'vehichle type');
+
+CREATE TABLE inventory(
+    id INTEGER PRIMARY KEY NOT NULL,
+    vin INTEGER NOT NULL,
+    make VARCHAR(255) NOT NULL,
+    model VARCHAR(255) NOT NULL,
+    mileage INTEGER NOT NULL,
+    price INTEGER NOT NULL,
+    image_url VARCHAR(255) NOT NULL,
+    body_style VARCHAR(255) NOT NULL
+);
+
+Begin new 'inventory' 
+*/
+
+INSERT into `inventory` (`id`, `vin`, `make`, `model`, `mileage` , `price` ,`image_url`, `body_style`)
+VALUES (1, 1234, `Ford`, `Ranger`, 10000, 30000,'static/images/FordRanger.jpeg', 'Truck');
+
+INSERT into `inventory` (`id`, `vin`, `make`, `model`, `mileage` , `price` ,`image_url`, `body_style`)
+VALUES (2, 2000, `Chevrolet`, `Silverado`, 7, 72000,'static/images/ChevroletSilverado.jpeg', 'Truck');
+
+INSERT into `inventory` (`id`, `vin`, `make`, `model`, `mileage` , `price` ,`image_url`, `body_style`)
+VALUES (3, 7272, `Chevrolet`, `Cruz`, 35000, 25000,'static/images/ChevroletCruz.jpeg', 'Sedan');
