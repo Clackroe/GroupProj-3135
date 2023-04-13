@@ -27,10 +27,12 @@ class "Database" as database.db.Database #aliceblue {
   get_email_by_username(self, username: str)
   get_first_name_by_username(self, username: str)
   get_last_name_by_username(self, username: str)
+  get_permission(self, username: str)
   set_password_hash(self, username: str, new_password_hash: str)
   set_email(self, username: str, new_email: str)
   set_first_name(self, username: str, new_first_name: str)
   set_last_name(self, username: str, new_last_name: str)
+  set_permission(self, username: str)
   SALES
   insert_new_sale(self, transaction_id: int, username: str, item_id: int, quantity: int, sale_date: dt.date, cost: float)
   get_full_sales_information(self)
