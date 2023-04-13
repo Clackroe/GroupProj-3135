@@ -181,7 +181,7 @@ class Database:
     # ------------------ Users -------------------
     # --------------------------------------------
 
-    def insert_user(self, username: str, password_hash: str, email: str, first_name: str, last_name: str) -> None:
+    def insert_user(self, username: str, password_hash: str, email: str, first_name: str, last_name: str, permission: str) -> None:
         """
         Inserts a new user into the database.
 
@@ -194,8 +194,8 @@ class Database:
             - None
         """
         self.cursor.execute(
-            "INSERT INTO users (username, password_hash, email, first_name, last_name) VALUES (?, ?, ?, ?, ?)",
-            (username, password_hash, email, first_name, last_name))
+            "INSERT INTO users (username, password_hash, email, first_name, last_name, permission) VALUES (?, ?, ?, ?, ?, ?)",
+            (username, password_hash, email, first_name, last_name, permission))
         self.connection.commit()
 
     # ------ Getter methods ------
@@ -268,6 +268,21 @@ class Database:
         self.cursor.execute(
             "SELECT last_name FROM users WHERE username = ?", (username,))
         return self.cursor.fetchone()
+   
+    def get_permission(self, username: str):
+        """
+        Updates the last name of a user in the database.
+
+        args:
+            - username: The username of the user to update.
+            - new_last_name: The new last name of the user.
+
+        returns:
+            - None
+        """
+        self.cursor.execute(
+            "SELECT permission FROM users WHERE username = ?", (username,))
+        self.connection.commit()
 
     # ------ Setter methods ------
 
@@ -331,6 +346,20 @@ class Database:
             "UPDATE users SET last_name = ? WHERE username = ?", (new_last_name, username))
         self.connection.commit()
 
+    def set_permission(self, username: str, new_permission: str):
+        """
+        Updates the last name of a user in the database.
+
+        args:
+            - username: The username of the user to update.
+            - new_last_name: The new last name of the user.
+
+        returns:
+            - None
+        """
+        self.cursor.execute(
+            "UPDATE users SET permission = ? WHERE username = ?", (new_permission, username))
+        self.connection.commit()
     # --------------------------------------------
     # ------------------ Sales -------------------
     # --------------------------------------------
