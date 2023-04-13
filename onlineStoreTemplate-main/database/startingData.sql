@@ -48,10 +48,10 @@ Begin new 'inventory'
 */
 
 INSERT into `inventory` (`id`, `vin`, `make`, `model`, `mileage` , `price` ,`image_url`, `body_style`)
-VALUES (1, 1234, `Ford`, `Ranger`, 10000, 30000,'static/images/FordRanger.jpeg', 'Truck');
+VALUES (1, 1234, 'Ford', 'Ranger', 10000, 30000,'static/images/FordRanger.jpeg', 'Truck');
 
 INSERT into `inventory` (`id`, `vin`, `make`, `model`, `mileage` , `price` ,`image_url`, `body_style`)
-VALUES (2, 2000, `Chevrolet`, `Silverado`, 7, 72000,'static/images/ChevroletSilverado.jpeg', 'Truck');
+VALUES (2, 2000, 'Chevrolet', 'Silverado', 7, 72000,'static/images/ChevroletSilverado.jpeg', 'Truck');
 
 INSERT into `inventory` (`id`, `vin`, `make`, `model`, `mileage` , `price` ,`image_url`, `body_style`)
-VALUES (3, 7272, `Chevrolet`, `Cruz`, 35000, 25000,'static/images/ChevroletCruz.jpeg', 'Sedan');
+VALUES (3, 7272, 'Chevrolet', 'Cruz', 35000, 25000,'static/images/ChevroletCruz.jpeg', 'Sedan');
