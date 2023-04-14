@@ -44,11 +44,11 @@ class Database:
     #    self.connection.commit()
 
     #added with alerations to oridinal add_new_items
-    def insert_new_vehicle(self, vin: int, make: str, model: str, mileage: int, price: int, image_url: str,body_style: str) -> None:
+    def insert_new_vehicle(self, vin: int, v_year:int, make: str, model: str, mileage: int, price: int, image_url: str,body_style: str) -> None:
 
         #could possibly need to include the 'id' in parameters as a value for increment
         self.cursor.execute(   
-        "INSERT INTO inventory (vin, make, model, mileage, price, image_url,body_style) VALUES (?, ?, ?, ?, ?, ?)", (vin, make, model, mileage, price, image_url, body_style))
+        "INSERT INTO inventory (vin, v_year, make, model, mileage, price, image_url,body_style) VALUES (?, ?, ?, ?, ?, ?)", (vin, v_year, make, model, mileage, price, image_url, body_style))
         self.connection.execute()
 
     # ----------------------------
@@ -100,6 +100,11 @@ class Database:
     #    """
     #    self.cursor.execute("SELECT * FROM inventory WHERE id = ?", (item_id,))
     #    return self.cursor.fetchone()
+    def get_vehicle_year_by_vin(self, vin: int):
+
+        self.cursor.execute(
+            "SELECT v_year FROM inventory WHERE vin = ?", (vin,))
+        return self.cursor.fetchone()
 
     def get_vehicle_make_by_vin(self, vin: int):
 
@@ -140,6 +145,11 @@ class Database:
     # ----------------------------
     # ------ Setter methods ------
     # ----------------------------
+    def set_vehicle_year(self, vin: int, new_year: str):
+        
+        self.cursor.execute(
+            "UPDATE inventory SET v_year = ? WHERE vin = ?", (new_year, vin))
+        self.connection.commit()
 
     def set_vehicle_make(self, vin: int, new_make: str):
         
