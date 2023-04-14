@@ -82,3 +82,20 @@ def compare_mileage(vin1: int, vin2: int):
     return lowestMiles
 
 
+# Want to add sorting methods for Make, Body Style, and lowest to highest prices, highest to lowest prices
+# Need to speak with Xander and Nate on how to do so in a way that changes the html and if I need to do something differnt here
+# in order to do so
+# Basically how to make these methods in here reactive with the webpage
+
+def sortByMake():
+     pass
+
+def sortByBodyStyle():
+     pass
+
+def pricesLowToHigh():
+     pass
+
+def pricesHighToLow():
+     pass
+
