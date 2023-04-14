@@ -60,7 +60,7 @@ def compare_cost(vin1: int, vin2: int):
 
 def compare_mileage(vin1: int, vin2: int):
     """
-    Compares any two vehicles by price for customers to view which they prefer to purchase
+    Compares any two vehicles by mileage for customers to view which they prefer to purchase
     
     args:
         - vin1: Vin number of vehicle 1
