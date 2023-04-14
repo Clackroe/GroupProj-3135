@@ -1,5 +1,5 @@
 import sqlite3
-import uuid
+from database.db import Database
 
 
 def dict_factory(cursor: sqlite3.Cursor, row: tuple) -> dict:
@@ -19,50 +19,83 @@ def dict_factory(cursor: sqlite3.Cursor, row: tuple) -> dict:
         row_dict[column[0]] = row[index]
     return row_dict
 
-
-def calculate_cost(price: int, quantity: int, discount: float = 0.0, tax_rate: float = 0.05) -> float:
+# Add compare_cost method below
+# Add compare_mileage below
+# Calculate cost based on price, * 1 + taxrate, pull price from db when Nate is done, remove discount and quantity
+def calculate_cost(vin: int, tax_rate: float = 0.05) -> float:
     """
     Calculates the cost of an item.
 
     args:
-        - price: The price of the item.
-        - quantity: The quantity of the item.
-        - discount: The discount of the item.
+        - vin: Vin number of vehicle being purchased.
         - tax_rate: The tax rate of the item.
 
     returns:
         - The cost of the item as a float.
     """
-    return (price * quantity) * (1 - discount) * (1 + tax_rate)
+    return Database.get_vehicle_price_by_vin(vin) * (1 + tax_rate)
 
-
-def calculate_total_cost(items: dict) -> float:
+def compare_cost(vin1: int, vin2: int):
     """
-    Calculates the total cost of a set of items.
-
+    Compares any two vehicles by price for customers to view which they prefer to purchase
+    
     args:
-        - items: A dictionary of items to calculate the total cost of.
+        - vin1: Vin number of vehicle 1
+        - vin2: Vin number of vheicle 2
 
     returns:
-        - The total cost of the sale as a float.
+        - Make and model of the cheaper vehicle
     """
-    total_cost = 0
-    print(items)
-    for i in items:
-        item = items[i]
-        total_cost += calculate_cost(float(item["price"]), int(item["quantity"]),
-                                     float(item["discount"]), int(item["tax_rate"]))
-    return total_cost
 
+    price1 = Database.get_vehicle_price_by_vin(vin1)
+    price2 = Database.get_vehicle_price_by_vin(vin2)
+    cheapestPrice
 
-def generate_unique_id() -> str:
+    if (price1 < price2):
+            cheapestPrice = price1
+    else:
+         cheapestPrice = price2
+
+    return cheapestPrice
+
+def compare_mileage(vin1: int, vin2: int):
     """
-    Generates a unique ID.
-
+    Compares any two vehicles by mileage for customers to view which they prefer to purchase
+    
     args:
-        - None
+        - vin1: Vin number of vehicle 1
+        - vin2: Vin number of vheicle 2
 
     returns:
-        - A unique ID as a string.
+        - Make and model of the cheaper vehicle
     """
-    return str(uuid.uuid4())
+
+    miles1 = Database.get_vehicle_mileage_by_vin(vin1)
+    miles2 = Database.get_vehicle_mileage_by_vin(vin2)
+    lowestMiles
+
+    if (miles1 < miles2):
+            lowestMiles = miles1
+    else:
+        lowestMiles = miles2
+
+    return lowestMiles
+
+
+# Want to add sorting methods for Make, Body Style, and lowest to highest prices, highest to lowest prices
+# Need to speak with Xander and Nate on how to do so in a way that changes the html and if I need to do something differnt here
+# in order to do so
+# Basically how to make these methods in here reactive with the webpage
+
+def sortByMake():
+     pass
+
+def sortByBodyStyle():
+     pass
+
+def pricesLowToHigh():
+     pass
+
+def pricesHighToLow():
+     pass
+
