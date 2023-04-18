@@ -52,22 +52,22 @@ Begin new 'inventory'
 */-----------------
 
 INSERT into `inventory` (`id`, `vin`, `v_year`,`make`, `model`, `mileage` , `price` ,`image_url`, `body_style`)
-VALUES (1, 1234, 'Ford', 'Ranger', 2022, 52, 38000,'static/images/FordRanger.jpeg', 'Truck');
+VALUES (1, 1234, 2022,'Ford', 'Ranger', 52, 38000,'static/images/FordRanger.jpeg', 'Truck');
 
 INSERT into `inventory` (`id`, `vin`, `v_year`,`make`, `model`, `mileage` , `price` ,`image_url`, `body_style`)
-VALUES (2, 2000, 'Chevrolet', 'Silverado', 2023, 22, 60000,'static/images/ChevySilverado.jpeg', 'Truck');
+VALUES (2, 2000, 2023,'Chevrolet', 'Silverado',  22, 60000,'static/images/ChevySilverado.jpeg', 'Truck');
 
 INSERT into `inventory` (`id`, `vin`, `v_year`,`make`, `model`, `mileage` , `price` ,`image_url`, `body_style`)
-VALUES (3, 7272, 'Chevrolet', 'Malibu', 2023, 15, 33000,'static/images/ChevyMalibu.jpeg', 'Sedan');
+VALUES (3, 7272, 2023,'Chevrolet', 'Malibu',  15, 33000,'static/images/ChevyMalibu.jpeg', 'Sedan');
 
 INSERT into `inventory` (`id`, `vin`, `v_year`,`make`, `model`, `mileage` , `price` ,`image_url`, `body_style`)
-VALUES (4, 7556, 'Buick', 'Enclave', 2012,72000, 23000,'static/images/BuickEnclave.jpeg', 'SUV');
+VALUES (4, 7556, 2012,'Buick', 'Enclave', 72000, 23000,'static/images/BuickEnclave.jpeg', 'SUV');
 
 INSERT into `inventory` (`id`, `vin`, `v_year`,`make`, `model`, `mileage` , `price` ,`image_url`, `body_style`)
-VALUES (5, 8045, 'Chevrolet', 'Comaro', 2022, 15, 59000,'static/images/ChevroletComaro.jpeg', 'Coupe');
+VALUES (5, 8045, 2022,'Chevrolet', 'Comaro',  15, 59000,'static/images/ChevroletComaro.jpeg', 'Coupe');
 
 INSERT into `inventory` (`id`, `vin`, `v_year`,`make`, `model`, `mileage` , `price` ,`image_url`, `body_style`)
-VALUES (6, 9876, 'Ford', 'Shelby GT500', 2023,10, 88000,'static/images/FordShelbyGT500.jpeg', 'Coupe');
+VALUES (6, 9876, 2023'Ford', 'Shelby GT500', ,10, 88000,'static/images/FordShelbyGT500.jpeg', 'Coupe');
 
 INSERT into `inventory` (`id`, `vin`, `v_year`,`make`, `model`, `mileage` , `price` ,`image_url`, `body_style`)
-VALUES (7, 5050, 'Chevrolet', 'Corvette', 2023, 12, 97000,'static/images/ChevyCorvette.jpeg', 'Coupe');
+VALUES (7, 5050, 2023,'Chevrolet', 'Corvette',  12, 97000,'static/images/ChevyCorvette.jpeg', 'Coupe');
