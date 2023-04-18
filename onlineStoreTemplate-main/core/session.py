@@ -114,6 +114,59 @@ class UserSession:
         self.update_total_cost()
         self.date = datetime.now()
 
+class AdminSession(UserSession):
+    def __init__(self, username: str, db: Database):
+        super().__init__(username, db)
+
+    def add_car_to_inventory(self, car_info: dict) -> None:
+        """
+        Adds a car to the inventory.
+
+        args:
+            - car_info: A dictionary containing information about the car.
+
+        returns:
+            - None
+        """
+        # implementation
+
+    def edit_car_specs_in_inventory(self, car_id: str, new_specs: dict) -> None:
+        """
+        Edits the specifications of a car in the inventory.
+
+        args:
+            - car_id: The ID of the car to edit.
+            - new_specs: A dictionary containing the updated specifications.
+
+        returns:
+            - None
+        """
+        # implementation
+
+    def remove_car_from_inventory(self, car_id: str) -> None:
+        """
+        Removes a car from the inventory.
+
+        args:
+            - car_id: The ID of the car to remove.
+
+        returns:
+            - None
+        """
+        # implementation
+
+    def view_car_inventory(self) -> List[dict]:
+        """
+        Returns a list of all cars in the inventory.
+
+        args:
+            - None
+
+        returns:
+            - A list of dictionaries, where each dictionary contains information about a car.
+        """
+        # implementation
+
 
 class Sessions:
     """
