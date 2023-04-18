@@ -1,5 +1,6 @@
 from datetime import datetime
 from database.db import Database
+from utils import calculate_cost
 
 
 class UserSession:
@@ -98,7 +99,7 @@ class UserSession:
         """
         Updates the total cost of the user's cart.
         """
-        self.total_cost = calculate_total_cost(self.cart)
+        self.total_cost = calculate_cost(self.cart)
 
     def submit_cart(self) -> None:
         """
