@@ -1,4 +1,3 @@
-from core.utils import calculate_total_cost
 from datetime import datetime
 from database.db import Database
 
