@@ -236,6 +236,8 @@ class Database:
         self.cursor.execute(
             "SELECT password_hash FROM users WHERE username = ?", (username,))
         return self.cursor.fetchone()
+   
+    
 
     def get_email_by_username(self, username: str):
         """
@@ -355,6 +357,8 @@ class Database:
         self.cursor.execute(
             "UPDATE users SET last_name = ? WHERE username = ?", (new_last_name, username))
         self.connection.commit()
+
+        
 
     def set_permission(self, username: str, new_permission: str):
         """

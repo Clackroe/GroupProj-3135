@@ -12,7 +12,6 @@ CREATE TABLE inventory (
 
 */
 CREATE TABLE inventory(
-    id INTEGER PRIMARY KEY NOT NULL,
     vin INTEGER NOT NULL,
     v_year INTEGER NOT NULL,
     make VARCHAR(255) NOT NULL,
@@ -29,7 +28,7 @@ CREATE TABLE users (
     email VARCHAR(255) NOT NULL,
     first_name VARCHAR(255) NOT NULL,
     last_name VARCHAR(255) NOT NULL,
-    permission INTEGER NOT NULL --0=user 1=employee 2=admin
+    permission VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE sales (

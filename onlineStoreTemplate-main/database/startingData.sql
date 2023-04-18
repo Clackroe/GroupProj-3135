@@ -51,23 +51,23 @@ Begin new 'inventory'
 ------Inventory----
 */-----------------
 
-INSERT into `inventory` (`id`, `vin`, `v_year`,`make`, `model`, `mileage` , `price` ,`image_url`, `body_style`)
-VALUES (1, 1234, 2022,'Ford', 'Ranger', 52, 38000,'static/images/FordRanger.jpeg', 'Truck');
+INSERT into `inventory` ( `vin`, `v_year`,`make`, `model`, `mileage` , `price` ,`image_url`, `body_style`)
+VALUES ( 1234, 2022,'Ford', 'Ranger', 52, 38000,'static/images/FordRanger.jpeg', 'Truck');
 
-INSERT into `inventory` (`id`, `vin`, `v_year`,`make`, `model`, `mileage` , `price` ,`image_url`, `body_style`)
-VALUES (2, 2000, 2023,'Chevrolet', 'Silverado',  22, 60000,'static/images/ChevySilverado.jpeg', 'Truck');
+INSERT into `inventory` ( `vin`, `v_year`,`make`, `model`, `mileage` , `price` ,`image_url`, `body_style`)
+VALUES ( 2000, 2023,'Chevrolet', 'Silverado',  22, 60000,'static/images/ChevySilverado.jpeg', 'Truck');
 
-INSERT into `inventory` (`id`, `vin`, `v_year`,`make`, `model`, `mileage` , `price` ,`image_url`, `body_style`)
-VALUES (3, 7272, 2023,'Chevrolet', 'Malibu',  15, 33000,'static/images/ChevyMalibu.jpeg', 'Sedan');
+INSERT into `inventory` ( `vin`, `v_year`,`make`, `model`, `mileage` , `price` ,`image_url`, `body_style`)
+VALUES ( 7272, 2023,'Chevrolet', 'Malibu',  15, 33000,'static/images/ChevyMalibu.jpeg', 'Sedan');
 
-INSERT into `inventory` (`id`, `vin`, `v_year`,`make`, `model`, `mileage` , `price` ,`image_url`, `body_style`)
-VALUES (4, 7556, 2012,'Buick', 'Enclave', 72000, 23000,'static/images/BuickEnclave.jpeg', 'SUV');
+INSERT into `inventory` ( `vin`, `v_year`,`make`, `model`, `mileage` , `price` ,`image_url`, `body_style`)
+VALUES ( 7556, 2012,'Buick', 'Enclave', 72000, 23000,'static/images/BuickEnclave.jpeg', 'SUV');
 
-INSERT into `inventory` (`id`, `vin`, `v_year`,`make`, `model`, `mileage` , `price` ,`image_url`, `body_style`)
-VALUES (5, 8045, 2022,'Chevrolet', 'Comaro',  15, 59000,'static/images/ChevroletComaro.jpeg', 'Coupe');
+INSERT into `inventory` (`vin`, `v_year`,`make`, `model`, `mileage` , `price` ,`image_url`, `body_style`)
+VALUES ( 8045, 2022,'Chevrolet', 'Comaro',  15, 59000,'static/images/ChevroletComaro.jpeg', 'Coupe');
 
-INSERT into `inventory` (`id`, `vin`, `v_year`,`make`, `model`, `mileage` , `price` ,`image_url`, `body_style`)
-VALUES (6, 9876, 2023'Ford', 'Shelby GT500', ,10, 88000,'static/images/FordShelbyGT500.jpeg', 'Coupe');
+INSERT into `inventory` ( `vin`, `v_year`,`make`, `model`, `mileage` , `price` ,`image_url`, `body_style`)
+VALUES ( 9876, 2023, 'Ford', 'Shelby GT500', ,10, 88000,'static/images/FordShelbyGT500.jpeg', 'Coupe');
 
-INSERT into `inventory` (`id`, `vin`, `v_year`,`make`, `model`, `mileage` , `price` ,`image_url`, `body_style`)
-VALUES (7, 5050, 2023,'Chevrolet', 'Corvette',  12, 97000,'static/images/ChevyCorvette.jpeg', 'Coupe');
+INSERT into `inventory` ( `vin`, `v_year`,`make`, `model`, `mileage` , `price` ,`image_url`, `body_style`)
+VALUES ( 5050, 2023,'Chevrolet', 'Corvette',  12, 97000,'static/images/ChevyCorvette.jpeg', 'Coupe');
