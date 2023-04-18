@@ -12,7 +12,6 @@ CREATE TABLE inventory (
 
 */
 CREATE TABLE inventory(
-    id INTEGER PRIMARY KEY NOT NULL,
     vin INTEGER NOT NULL,
     v_year INTEGER NOT NULL,
     make VARCHAR(255) NOT NULL,
