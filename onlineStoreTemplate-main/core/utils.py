@@ -68,7 +68,7 @@ def compare_mileage(miles1: int, miles2: int):
             lowestMiles = miles1
     else:
         lowestMiles = miles2
-        dict_factory()
+        
 
     return lowestMiles
 
