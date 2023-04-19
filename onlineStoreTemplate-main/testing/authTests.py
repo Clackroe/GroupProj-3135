@@ -1,3 +1,7 @@
+
+import sys
+sys.path.append('../')
+
 from authentication.authTools import hash_password
 
 def test_hash_password_generates_salt():

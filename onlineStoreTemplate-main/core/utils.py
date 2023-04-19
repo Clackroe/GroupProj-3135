@@ -1,6 +1,13 @@
 import sqlite3
+import random
 
 
+def generate_unique_id():
+    # Generate a random  number
+    
+    return random.randint(0, 80000)
+    
+    
 
 def dict_factory(cursor: sqlite3.Cursor, row: tuple) -> dict:
     """

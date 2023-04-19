@@ -1,0 +1,3 @@
+Test report for core tests.
+core tests complete.
+3 out of 3 tests passed.
