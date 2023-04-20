@@ -1,12 +1,11 @@
+import os
 from testing.authTests import test_hash_password_generates_salt, test_salt_length, test_hash_password_returns_given_salt, test_hash_password_uses_given_salt
 from core.utils import generate_unique_id
 from datetime import datetime
 from testing.dbTests import test_init_db, test_get_inventory_exists, test_dict_factory_link, test_check_connection_threaded
 from testing.coreTests import test_init_sessions, test_add_new_session, test_get_session
 from testing.sessionTests import TestUserSession, TestSessions
-import os
-
-# -------- Testing Function Constants --------
+from testing.utilsTests import TestVehicleFunctions
 
 AUTH_FUNCS = [test_hash_password_generates_salt,
               test_salt_length,
@@ -38,6 +37,14 @@ SESSION_FUNCS = [sessionTests.setUp,
                  sessionTests.test_get_session,
                  sessionTests.test_remove_session,
                  sessionTests.test_get_all_sessions
+]
+
+utilsTests = TestVehicleFunctions()
+SESSIOn_FUNCS = [utilsTests.setUp,
+                 utilsTests.test_dict_factory,
+                 utilsTests.test_calculate_cost,
+                 utilsTests.test_compare_cost,
+                 utilsTests.test_compare_mileage
 ]
 
 TESTING_FUNCTIONS = {"core": CORE_FUNCS,
