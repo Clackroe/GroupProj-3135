@@ -46,7 +46,6 @@ def admin_page():
 @app.route('/admin', methods=['POST'])
 def admin_tools():
     
-    
     admin_tool= request.form['admin_tool']
     
     if admin_tool != None:
@@ -55,7 +54,21 @@ def admin_tools():
         
 @app.route('/admin/roles')
 def roles():
-    return render_template('roles.html')
+    roles = db.get_all_user_information()
+    return render_template('roles.html', roles=roles)
+
+@app.route('/admin/roles', methods=['POST'])
+def roles_tools():
+
+    username = request.form['username']
+    password = request.form['password']
+    first_name = request.form['first_name']
+    last_name = request.form['last_name']
+    email = request.form['email']
+    role = request.form['role']
+    db.insert_user(username, password, email, first_name, last_name, role)
+    return redirect(url_for("roles"))
+
 
 @app.route('/admin/stock')
 def stock():
