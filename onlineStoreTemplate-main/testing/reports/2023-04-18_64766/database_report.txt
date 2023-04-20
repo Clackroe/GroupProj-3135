@@ -1,0 +1,3 @@
+Test report for database tests.
+database tests complete.
+4 out of 4 tests passed.
