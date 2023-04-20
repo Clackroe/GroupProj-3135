@@ -39,7 +39,7 @@ class UserSession:
         inventory = self.db.get_full_inventory()
         new_cart = {}
         for item in inventory:
-            new_cart[item["id"]] = {"name": item["make"] + " " + item["model"], "price": item["price"], "quantity": 0,
+            new_cart[item["vin"]] = {"name": item["make"] + " " + item["model"], "price": item["price"], "quantity": 0,
                                     "discount": 0, "tax_rate": 0}
         return new_cart
 
