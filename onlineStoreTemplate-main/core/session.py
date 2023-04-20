@@ -128,7 +128,7 @@ class AdminSession(UserSession):
         returns:
             - None
         """
-        # implementation
+        db.insert_new_item()
 
     def edit_car_specs_in_inventory(self, car_id: str, new_specs: dict) -> None:
         """
@@ -141,7 +141,7 @@ class AdminSession(UserSession):
         returns:
             - None
         """
-        # implementation
+        
 
     def remove_car_from_inventory(self, car_id: str) -> None:
         """
