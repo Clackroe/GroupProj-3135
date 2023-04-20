@@ -3,6 +3,7 @@ from core.utils import generate_unique_id
 from datetime import datetime
 from testing.dbTests import test_init_db, test_get_inventory_exists, test_dict_factory_link, test_check_connection_threaded
 from testing.coreTests import test_init_sessions, test_add_new_session, test_get_session
+from testing.sessionTests import TestUserSession, TestSessions
 import os
 
 # -------- Testing Function Constants --------
@@ -20,9 +21,30 @@ CORE_FUNCS = [test_init_sessions,
               test_add_new_session,
               test_get_session]
 
+userSessionTests = TestUserSession()
+USER_SESSION_FUNCS = [userSessionTests.setUp,
+                 userSessionTests.test_empty_cart,
+                 userSessionTests.test_add_new_item,
+                 userSessionTests.test_update_item_quantity_add,
+                 userSessionTests.test_update_item_quantity_remove,
+                 userSessionTests.test_remove_item,
+                 userSessionTests.test_update_total_cost,
+                 userSessionTests.test_submit_cart 
+]
+
+sessionTests = TestSessions()
+SESSION_FUNCS = [sessionTests.setUp,
+                 sessionTests.test_add_new_session,
+                 sessionTests.test_get_session,
+                 sessionTests.test_remove_session,
+                 sessionTests.test_get_all_sessions
+]
+
 TESTING_FUNCTIONS = {"core": CORE_FUNCS,
                      "database": DB_FUNCS,
-                     "authentication": AUTH_FUNCS}
+                     "authentication": AUTH_FUNCS,
+                     "session": SESSION_FUNCS,
+                     "userSession": USER_SESSION_FUNCS}
 
 
 def run_tests(test_type: str, test_funcs: list, report_file_path: str) -> int:
