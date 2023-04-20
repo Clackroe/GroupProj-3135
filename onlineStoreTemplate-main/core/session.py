@@ -1,4 +1,4 @@
-from core.utils import calculate_total_cost
+from core.utils import calculate_cost
 from datetime import datetime
 from database.db import Database
 
@@ -39,7 +39,7 @@ class UserSession:
         inventory = self.db.get_full_inventory()
         new_cart = {}
         for item in inventory:
-            new_cart[item["id"]] = {"name": item["item_name"], "price": item["price"], "quantity": 0,
+            new_cart[item["vin"]] = {"name": item["make"] + " " + item["model"], "price": item["price"], "quantity": 0,
                                     "discount": 0, "tax_rate": 0}
         return new_cart
 
@@ -99,7 +99,7 @@ class UserSession:
         """
         Updates the total cost of the user's cart.
         """
-        self.total_cost = calculate_total_cost(self.cart)
+        self.total_cost = calculate_cost(self.cart)
 
     def submit_cart(self) -> None:
         """

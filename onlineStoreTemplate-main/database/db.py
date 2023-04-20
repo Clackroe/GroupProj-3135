@@ -27,24 +27,35 @@ class Database:
     # ----------------- INVENTORY ----------------
     # --------------------------------------------
 
-    def insert_new_item(self, item_name: str, price: int, info: str) -> None:
-        """
-        Inserts a new item_item into the database.
+    #def insert_new_item(self, item_name: str, price: int, info: str) -> None:
+    #    """
+    #    Inserts a new item_item into the database.
 
-        args:
-            - item_name: The name of the item.
-            - price: The price of the item.
-            - info: The info of the item.
+    #    args:
+    #        - item_name: The name of the item.
+    #        - price: The price of the item.
+    #        - info: The info of the item.
 
-        returns:
-            - None
-        """
-        self.cursor.execute(
-            "INSERT INTO inventory (item_name, price, info) VALUES (?, ?, ?)", (item_name, price, info))
-        self.connection.commit()
+    #   returns:
+    #        - None
+    #    """
+    #    self.cursor.execute(
+    #        "INSERT INTO inventory (item_name, price, info) VALUES (?, ?, ?)", (item_name, price, info))
+    #    self.connection.commit()
 
+    #added with alerations to oridinal add_new_items
+    def insert_new_vehicle(self, vin: int, v_year:int, make: str, model: str, mileage: int, price: int, image_url: str,body_style: str) -> None:
+
+        #could possibly need to include the 'id' in parameters as a value for increment
+        self.cursor.execute(   
+        "INSERT INTO inventory (vin, v_year, make, model, mileage, price, image_url,body_style) VALUES (?, ?, ?, ?, ?, ?)", (vin, v_year, make, model, mileage, price, image_url, body_style))
+        self.connection.execute()
+
+    # ----------------------------
     # ------ Getter methods ------
+    # ----------------------------
 
+    #NO CHANGE
     def get_full_inventory(self):
         """
         Gets all inventory in the database.
@@ -57,200 +68,130 @@ class Database:
         """
         self.cursor.execute("SELECT * FROM inventory")
         return self.cursor.fetchall()
+    
 
-    def get_all_item_ids(self):
-        """
-        Gets all item ids in the database.
+   #def get_all_item_ids(self):
+   #    """
+   #     Gets all item ids in the database.
 
-        args:
-            - None
+   #     args:
+   #         - None
 
-        returns:
-            - List of all item ids in the database.
-        """
-        self.cursor.execute("SELECT id FROM inventory")
+   #     returns:
+   #         - List of all item ids in the database.
+   #     """
+   #     self.cursor.execute("SELECT id FROM inventory")
+   #     return self.cursor.fetchall()
+
+   #added with alerations to oridinal get_all_item_ids
+    def get_all_vehicle_vin(self):
+        self.cursor.execute("SELECT vin FROM inventory")
         return self.cursor.fetchall()
 
-    def get_item_name_by_id(self, item_id: int):
-        """
-        Gets an item's name from the database.
+    #def get_item_name_by_id(self, item_id: int):
+    #    """
+    #    Gets an item's name from the database.
 
-        args:
-            - item_id: The id of the item to get.
+    #    args:
+    #        - item_id: The id of the item to get.
 
-        returns:
-            - The item with the given id.
-        """
-        self.cursor.execute("SELECT * FROM inventory WHERE id = ?", (item_id,))
-        return self.cursor.fetchone()
+    #    returns:
+    #        - The item with the given id.
+    #    """
+    #    self.cursor.execute("SELECT * FROM inventory WHERE id = ?", (item_id,))
+    #    return self.cursor.fetchone()
+    def get_vehicle_year_by_vin(self, vin: int):
 
-    def get_item_info_by_id(self, item_id: int):
-        """
-        Gets the info (description) of an item from the database.
-
-        args:
-            - item_id: The id of the item to get.
-
-        returns:
-            - The info of the item with the given id.
-        """
         self.cursor.execute(
-            "SELECT info FROM inventory WHERE id = ?", (item_id,))
+            "SELECT v_year FROM inventory WHERE vin = ?", (vin,))
         return self.cursor.fetchone()
 
-    def get_item_price_by_id(self, item_id: int):
-        """
-        Gets the price of an item from the database.
+    def get_vehicle_make_by_vin(self, vin: int):
 
-        args:
-            - item_id: The id of the item to get.
-
-        returns:
-            - The price of the item with the given id.
-        """
         self.cursor.execute(
-            "SELECT price FROM inventory WHERE id = ?", (item_id,))
+            "SELECT make FROM inventory WHERE vin = ?", (vin,))
         return self.cursor.fetchone()
+    
+    def get_vehicle_model_by_vin(self, vin: int):
 
-    def get_item_stock_by_id(self, item_id: int):
-        """
-        Gets the stock of an item from the database.
-
-        args:
-            - item_id: The id of the item to get.
-
-        returns:
-            - The stock of the item with the given id.
-        """
         self.cursor.execute(
-            "SELECT stock FROM inventory WHERE id = ?", (item_id,))
+            "SELECT model FROM inventory WHERE vin = ?", (vin,))
         return self.cursor.fetchone()
 
-    def get_item_image_url_by_id(self, item_id: int):
-        """
-        Gets the image_url of an item from the database.
-
-        args:
-            - item_id: The id of the item to get.
-
-        returns:
-            - The image_url of the item with the given id.
-        """
+    def get_vehicle_price_by_vin(self, vin: int):
+       
         self.cursor.execute(
-            "SELECT image_url FROM inventory WHERE id = ?", (item_id,))
+            "SELECT price FROM inventory WHERE vin = ?", (vin,))
         return self.cursor.fetchone()
 
-    def get_item_category_by_id(self, item_id: int):
-        """
-        Gets the category of an item from the database.
-
-        args:
-            - item_id: The id of the item to get.
-
-        returns:
-            - The category of the item with the given id.
-        """
+    def get_vehicle_mileage_by_vin(self, vin: int):
+    
         self.cursor.execute(
-            "SELECT category FROM inventory WHERE id = ?", (item_id,))
+            "SELECT mileage FROM inventory WHERE vin = ?", (vin,))
         return self.cursor.fetchone()
 
+    def get_vehicle_image_url_by_vin(self, vin: int):
+       
+        self.cursor.execute(
+            "SELECT image_url FROM inventory WHERE vin = ?", (vin,))
+        return self.cursor.fetchone()
+
+    def get_vehicle_body_style_by_vin(self, vin: int):
+        
+        self.cursor.execute(
+            "SELECT body_style FROM inventory WHERE vin = ?", (vin,))
+        return self.cursor.fetchone()
+
+    # ----------------------------
     # ------ Setter methods ------
-
-    def set_item_name(self, item_id: int, new_name: str):
-        """
-        Updates the name of an item in the database.
-
-        args:
-            - item_id: The id of the item to update.
-            - new_name: The new name of the item.
-
-        returns:
-            - None
-        """
+    # ----------------------------
+    def set_vehicle_year(self, vin: int, new_year: str):
+        
         self.cursor.execute(
-            "UPDATE inventory SET name = ? WHERE id = ?", (new_name, item_id))
+            "UPDATE inventory SET v_year = ? WHERE vin = ?", (new_year, vin))
         self.connection.commit()
 
-    def set_item_info(self, item_id: int, new_info: str):
-        """
-        Updates the information of an item in the database.
-
-        args:
-            - item_id: The id of the item to update.
-            - new_info: The new information of the item.
-
-        returns:
-            - None
-        """
+    def set_vehicle_make(self, vin: int, new_make: str):
+        
         self.cursor.execute(
-            "UPDATE inventory SET info = ? WHERE id = ?", (new_info, item_id))
+            "UPDATE inventory SET make = ? WHERE vin = ?", (new_make, vin))
         self.connection.commit()
 
-    def set_item_price(self, item_id: int, new_price: float):
-        """
-        Updates the price of an item in the database.
-
-        args:
-            - item_id: The id of the item to update.
-            - new_price: The new price of the item.
-
-        returns:
-            - None
-        """
+    def set_vehicle_model(self, vin: int, new_model: str):
+        
         self.cursor.execute(
-            "UPDATE inventory SET price = ? WHERE id = ?", (new_price, item_id))
+            "UPDATE inventory SET model = ? WHERE vin = ?", (new_model, vin))
         self.connection.commit()
 
-    def set_item_stock(self, item_id: int, new_stock: int):
-        """
-        Updates the stock of an item in the database.
-
-        args:
-            - item_id: The id of the item to update.
-            - new_stock: The new stock of the item.
-
-        returns:
-            - None
-        """
+    def set_vehicle_price(self, vin: int, new_price: float):
+       
         self.cursor.execute(
-            "UPDATE inventory SET stock = ? WHERE id = ?", (new_stock, item_id))
+            "UPDATE inventory SET price = ? WHERE vin = ?", (new_price, vin))
         self.connection.commit()
 
-    def set_item_image_url(self, item_id: int, new_image_url: str):
-        """
-        Updates the image_url of an item in the database.
-
-        args:
-            - item_id: The id of the item to update.
-            - new_image_url: The new image of the item.
-
-        returns:
-            - None
-        """
+    def set_vehicle_mileage(self, vin: int, new_mileage: int):
+       
         self.cursor.execute(
-            "UPDATE inventory SET image_url = ? WHERE id = ?", (new_image_url, item_id))
+            "UPDATE inventory SET mileage = ? WHERE vin = ?", (new_mileage, vin))
         self.connection.commit()
 
-    def set_item_category(self, item_id: int, new_category: str):
-        """
-        Updates the category of an item in the database.
-
-        args:
-            - item_id: The id of the item to update.
-            - new_category: The new category of the item.
-
-        returns:
-            - None
-        """
+    def set_vehicle_image_url(self, vin: int, new_image_url: str):
+       
         self.cursor.execute(
-            "UPDATE inventory SET category = ? WHERE id = ?", (new_category, item_id))
+            "UPDATE inventory SET image_url = ? WHERE vin = ?", (new_image_url, vin))
+        self.connection.commit()
+
+    def set_vehicle_body_style(self, vin: int, new_body_style: str):
+        
+        self.cursor.execute(
+            "UPDATE inventory SET body_style = ? WHERE vin = ?", (new_body_style, vin))
         self.connection.commit()
 
     # --------------------------------------------
     # ------------------ Users -------------------
     # --------------------------------------------
 
-    def insert_user(self, username: str, password_hash: str, email: str, first_name: str, last_name: str) -> None:
+    def insert_user(self, username: str, password_hash: str, email: str, first_name: str, last_name: str, permission: str) -> None:
         """
         Inserts a new user into the database.
 
@@ -263,8 +204,8 @@ class Database:
             - None
         """
         self.cursor.execute(
-            "INSERT INTO users (username, password_hash, email, first_name, last_name) VALUES (?, ?, ?, ?, ?)",
-            (username, password_hash, email, first_name, last_name))
+            "INSERT INTO users (username, password_hash, email, first_name, last_name, permission) VALUES (?, ?, ?, ?, ?, ?)",
+            (username, password_hash, email, first_name, last_name, permission))
         self.connection.commit()
 
     # ------ Getter methods ------
@@ -295,6 +236,8 @@ class Database:
         self.cursor.execute(
             "SELECT password_hash FROM users WHERE username = ?", (username,))
         return self.cursor.fetchone()
+   
+    
 
     def get_email_by_username(self, username: str):
         """
@@ -337,6 +280,21 @@ class Database:
         self.cursor.execute(
             "SELECT last_name FROM users WHERE username = ?", (username,))
         return self.cursor.fetchone()
+   
+    def get_permission(self, username: str):
+        """
+        Updates the last name of a user in the database.
+
+        args:
+            - username: The username of the user to update.
+            - new_last_name: The new last name of the user.
+
+        returns:
+            - None
+        """
+        self.cursor.execute(
+            "SELECT permission FROM users WHERE username = ?", (username,))
+        self.connection.commit()
 
     # ------ Setter methods ------
 
@@ -400,6 +358,22 @@ class Database:
             "UPDATE users SET last_name = ? WHERE username = ?", (new_last_name, username))
         self.connection.commit()
 
+        
+
+    def set_permission(self, username: str, new_permission: str):
+        """
+        Updates the last name of a user in the database.
+
+        args:
+            - username: The username of the user to update.
+            - new_last_name: The new last name of the user.
+
+        returns:
+            - None
+        """
+        self.cursor.execute(
+            "UPDATE users SET permission = ? WHERE username = ?", (new_permission, username))
+        self.connection.commit()
     # --------------------------------------------
     # ------------------ Sales -------------------
     # --------------------------------------------

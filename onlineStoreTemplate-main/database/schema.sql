@@ -1,3 +1,5 @@
+/*
+
 CREATE TABLE inventory (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     item_name VARCHAR(255) NOT NULL,
@@ -8,12 +10,25 @@ CREATE TABLE inventory (
     category VARCHAR(255) NOT NULL
 );
 
+*/
+CREATE TABLE inventory(
+    vin INTEGER NOT NULL,
+    v_year INTEGER NOT NULL,
+    make VARCHAR(255) NOT NULL,
+    model VARCHAR(255) NOT NULL,
+    mileage INTEGER NOT NULL,
+    price INTEGER NOT NULL,
+    image_url VARCHAR(255) NOT NULL,
+    body_style VARCHAR(255) NOT NULL
+);
+
 CREATE TABLE users (
     username VARCHAR(255) PRIMARY KEY NOT NULL,
     password_hash VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
     first_name VARCHAR(255) NOT NULL,
-    last_name VARCHAR(255) NOT NULL
+    last_name VARCHAR(255) NOT NULL,
+    permission VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE sales (

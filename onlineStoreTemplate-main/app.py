@@ -2,7 +2,7 @@
 
 from authentication.authTools import login_pipeline, update_passwords, hash_password
 from database.db import Database
-from flask import Flask, render_template, request
+from flask import Flask, redirect, render_template, request, url_for
 from core.session import Sessions
 
 app = Flask(__name__)
@@ -28,6 +28,42 @@ def index_page():
     """
     return render_template('index.html', username=username, products=products, sessions=sessions)
 
+
+@app.route('/admin')
+def admin_page():
+    """
+    Renders the admin page when the user is at the `/admin` endpoint.
+
+    args:
+        - None
+
+    returns:
+        - None
+    """
+
+    return render_template('adminDash.html')
+
+@app.route('/admin', methods=['POST'])
+def admin_tools():
+    
+    
+    admin_tool= request.form['admin_tool']
+    
+    if admin_tool != None:
+        return redirect(url_for(admin_tool))
+        
+        
+@app.route('/admin/roles')
+def roles():
+    return render_template('roles.html')
+
+@app.route('/admin/stock')
+def stock():
+    return render_template('stock.html')
+
+@app.route('/admin/perms')
+def perms():
+    return render_template('perms.html')
 
 @app.route('/login')
 def login_page():
@@ -104,7 +140,7 @@ def register():
     last_name = request.form['last_name']
     salt, key = hash_password(password)
     update_passwords(username, key, salt)
-    db.insert_user(username, key, email, first_name, last_name)
+    db.insert_user(username, key, email, first_name, last_name, 0 )
     return render_template('index.html')
 
 
