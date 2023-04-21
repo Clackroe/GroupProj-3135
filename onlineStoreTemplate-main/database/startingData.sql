@@ -71,3 +71,18 @@ VALUES ( 9876, 2023, 'Ford', 'Shelby GT500', 10, 88000,'static/images/FordShelby
 
 INSERT into `inventory` ( `vin`, `v_year`,`make`, `model`, `mileage` , `price` ,`image_url`, `body_style`)
 VALUES ( 5050, 2023,'Chevrolet', 'Corvette',  12, 97000,'static/images/ChevyCorvette.jpeg', 'Coupe');
+
+
+
+
+INSERT INTO `logs` (`type`, `message`, `log_time`)
+VALUES ('INFO', 'Database initialized1', '2021-12-21 7:30:30');
+
+INSERT INTO `logs` (`type`, `message`, `log_time`)
+VALUES ('INFO', 'Database initialized21', '2021-12-21 7:30:30');
+
+INSERT INTO `logs` (`type`, `message`, `log_time`)
+VALUES ('INFO', 'Database initialized16', '2021-12-21 7:30:30');
+
+INSERT INTO `logs` (`type`, `message`, `log_time`)
+VALUES ('INFO', 'Database initialized134', '2021-12-21 7:30:30');
