@@ -29,7 +29,19 @@
         <td>{{role.first_name}}</td>
         <td>{{role.last_name}}</td>
         <td>{{role.email}}</td>
-        <td>{{role.permissions}}</td>
+        <td>
+            
+            {%if (role.permission == 0)%}
+                User
+            {%elif (role.permission == 1)%}
+                Admin
+            {%elif (role.permission == 2)%}
+                Employee
+            {%else %}
+                Unknown
+            {%endif%}
+
+        </td>
     
     {% endfor %}
     </tbody>
@@ -51,17 +63,17 @@
 <input type="text" name="password" placeholder="password"></input>
 
 <label>
-    <input type="radio" name="role" value="user" checked>
+    <input type="radio" name="role" value="0" checked>
     User
   </label>
   
   <label>
-    <input type="radio" name="role" value="admin">
+    <input type="radio" name="role" value="1">
     Admin
   </label>
   
   <label>
-    <input type="radio" name="role" value="employee">
+    <input type="radio" name="role" value="2">
     Employee
   </label>
   
