@@ -128,3 +128,4 @@ dmypy.json
 # Pyre type checker
 .pyre/
 onlineStoreTemplate-main/database/storeRecords.db
+onlineStoreTemplate-main/database/storeRecords.db
