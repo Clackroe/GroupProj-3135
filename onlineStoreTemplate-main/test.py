@@ -1,7 +1,7 @@
 from testing.authTests import test_hash_password_generates_salt, test_salt_length, test_hash_password_returns_given_salt, test_hash_password_uses_given_salt
 from core.utils import generate_unique_id
 from datetime import datetime
-from testing.dbTests import test_init_db, test_get_inventory_exists, test_dict_factory_link, test_check_connection_threaded
+from testing.dbTests import test_init_db, test_get_inventory_exists, test_dict_factory_link, test_check_connection_threaded,test_get_vehicle_year_by_vin,test_get_vehicle_make_by_vin,test_get_email_by_username, test_get_first_name_by_username
 from testing.coreTests import test_init_sessions, test_add_new_session, test_get_session
 from testing.sessionTests import TestUserSession, TestSessions
 import os
@@ -15,7 +15,11 @@ AUTH_FUNCS = [test_hash_password_generates_salt,
 
 DB_FUNCS = [test_init_db, test_get_inventory_exists,
             test_dict_factory_link,
-            test_check_connection_threaded]
+            test_check_connection_threaded,
+            test_get_vehicle_year_by_vin,
+            test_get_vehicle_make_by_vin,
+            test_get_email_by_username,
+            test_get_first_name_by_username]
 
 CORE_FUNCS = [test_init_sessions,
               test_add_new_session,
