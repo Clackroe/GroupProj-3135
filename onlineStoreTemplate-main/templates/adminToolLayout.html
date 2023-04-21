@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="container">
+
+<div class="row">
+
+
+    <div class="col-md-6">
+        {% block workspace %}
+
+        {% endblock %}
+
+    </div>
+
+    <div class="col-md-6">
+
+
+            <h2> Logs </h2>
+
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+                        <th>Type</th>
+                        <th>Data</th>
+                        <th>Time</th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+            {% for log in logs %}
+
+                <tr>
+
+                    <td>{{ log.log_id }}</td>
+                    <td>{{ log.type }}</td>
+                    <td>{{ log.message }}</td>
+                    <td>{{ log.log_time }}</td>
+                </tr>
+
+            {% endfor %}
+            </tbody>
+
+        </table>
+
+
+    </div>
+
+
+
+</div>
+</div>
+
+
+
+{% endblock %}
+
