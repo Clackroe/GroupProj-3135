@@ -42,6 +42,7 @@ def calculate_cost(price: int, tax_rate: float = 0.05) -> float:
     """
     return price * (1 + tax_rate)
 
+
 def compare_cost(price1: int, price2: int):
     """
     Compares any two vehicles by price for customers to view which they prefer to purchase

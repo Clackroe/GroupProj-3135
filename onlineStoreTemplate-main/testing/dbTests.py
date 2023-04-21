@@ -86,3 +86,59 @@ def test_check_connection_threaded(db: Database = None) -> tuple:
         return False, error
     else:
         return True, "Connection is not single threaded."
+
+
+#----------------
+#-----Tests------
+#----------------
+
+
+def test_get_vehicle_year_by_vin(db: Database = None) -> tuple:
+   
+
+    db = Database("database/storeRecords.db") if db is None else db
+    vehicle_year = db.get_vehicle_year_by_vin(1234)
+
+    if vehicle_year != 2022:
+        error = f"Error in test_get_vehicle_year_by_vin: Year is incorrect.\n  - Actual: {vehicle_year}"
+        return False, error
+    else:
+        return True, "Test_get_vehicle_year_by_vin is CORRECT"
+
+
+def test_get_vehicle_make_by_vin(db: Database = None) -> tuple:
+   
+
+    db = Database("database/storeRecords.db") if db is None else db
+    vehicle_make = db.get_vehicle_make_by_vin(1234)
+
+    if vehicle_make != "Ford":
+        error = f"Error in test_get_vehicle_make_by_vin: Make is INCORRECT.\n  - Actual: {vehicle_make}"
+        return False, error
+    else:
+        return True, "Test_get_vehicle_make_by_vin is CORRECT"
+
+def test_get_email_by_username(db: Database = None) -> tuple:
+   
+
+    db = Database("database/storeRecords.db") if db is None else db
+    user_email = db.get_email_by_username("aturing")
+
+    if user_email != "alan@enigma.com":
+        error = f"Error in test_get_email_by_username: email is incorrect.\n  - Actual: {user_email}"
+        return False, error
+    else:
+        return True, "test_get_email_by_username is CORRECT"
+
+
+def test_get_first_name_by_username(db: Database = None) -> tuple:
+   
+
+    db = Database("database/storeRecords.db") if db is None else db
+    user_first_name = db.get_first_name_by_username("aturing")
+
+    if user_first_name != "Alan":
+        error = f"Error in test_get_first_name_by_username: email is incorrect.\n  - Actual: {user_first_name}"
+        return False, error
+    else:
+        return True, "test_get_first_name_by_username is CORRECT"
