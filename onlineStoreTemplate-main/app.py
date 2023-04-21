@@ -65,7 +65,7 @@ def roles_tools():
     first_name = request.form['first_name']
     last_name = request.form['last_name']
     email = request.form['email']
-    role = request.form['role']
+    role = int(request.form['role'])
     db.insert_user(username, password, email, first_name, last_name, role)
     return redirect(url_for("roles"))
 
