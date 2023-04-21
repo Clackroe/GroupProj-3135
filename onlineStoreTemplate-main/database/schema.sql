@@ -43,3 +43,12 @@ CREATE TABLE sales (
     FOREIGN KEY (item_id) REFERENCES inventory(id)
 );
 
+CREATE TABLE logs (
+
+    log_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    type VARCHAR(255) NOT NULL,
+    message VARCHAR(255) NOT NULL,
+    log_time DATETIME NOT NULL
+
+);
+
