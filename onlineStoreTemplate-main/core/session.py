@@ -1,6 +1,7 @@
 from core.utils import calculate_cost
 from datetime import datetime
 from database.db import Database
+from utils import calculate_cost
 
 
 class UserSession:
