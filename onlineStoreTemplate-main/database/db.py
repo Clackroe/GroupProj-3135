@@ -693,40 +693,23 @@ class Database:
         self.cursor.execute(
             "UPDATE sales SET cost = ? WHERE id = ?", (new_cost, sale_id))
         self.connection.commit()
-        
-    
-    """
-    LOGS TABLE MANIPULATION METHODS
-    """
-        
-    def get_all_logs(self):
-        """
-        Gets all the logs from the database.
 
-        args:
-            - None
-
-        returns:
-            - All the logs in the database.
-        """
-        self.cursor.execute("SELECT * FROM logs")
+    def sort_by_price(self):
+        self.cursor.execute("SELECT * FROM inventory ORDER BY price")
         return self.cursor.fetchall()
     
-    def get_logs_by_type(self, type: str):
-        
-        self.cursor.execute("SELECT * FROM logs WHERE type = ?", (type,))
-        
-    def insert_new_log(self, message: str, type: str):
-        """
-        Inserts a new log into the database.
 
-        args:
-            - message: The message of the log.
-            - type: The type of the log.
+    def sort_by_year(self):
+        self.cursor.execute("SELECT * FROM inventory ORDER BY v_year")
+        return self.cursor.fetchall()
+    
 
-        returns:
-            - None
-        """
-        self.cursor.execute(
-            "INSERT INTO logs (message, type, log_time) VALUES (?, ?, ?)", (message, type, dt.datetime.now()))
-        self.connection.commit()
+    def sort_by_make_A_Z(self):
+        self.cursor.execute("SELECT * FROM inventory ORDER BY make")
+        return self.cursor.fetchall()
+    
+
+
+    def sort_by_make_Z_A(self):
+        self.cursor.execute("SELECT * FROM inventory ORDER BY make DESC")
+        return self.cursor.fetchall()
