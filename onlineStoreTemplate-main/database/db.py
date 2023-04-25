@@ -693,3 +693,23 @@ class Database:
         self.cursor.execute(
             "UPDATE sales SET cost = ? WHERE id = ?", (new_cost, sale_id))
         self.connection.commit()
+
+    def sort_by_price(self):
+        self.cursor.execute("SELECT * FROM inventory ORDER BY price")
+        return self.cursor.fetchall()
+    
+
+    def sort_by_year(self):
+        self.cursor.execute("SELECT * FROM inventory ORDER BY v_year")
+        return self.cursor.fetchall()
+    
+
+    def sort_by_make_A_Z(self):
+        self.cursor.execute("SELECT * FROM inventory ORDER BY make")
+        return self.cursor.fetchall()
+    
+
+
+    def sort_by_make_Z_A(self):
+        self.cursor.execute("SELECT * FROM inventory ORDER BY make DESC")
+        return self.cursor.fetchall()
