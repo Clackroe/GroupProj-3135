@@ -693,3 +693,5 @@ class Database:
         self.cursor.execute(
             "UPDATE sales SET cost = ? WHERE id = ?", (new_cost, sale_id))
         self.connection.commit()
+
+    
