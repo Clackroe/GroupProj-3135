@@ -28,7 +28,7 @@ CREATE TABLE users (
     email VARCHAR(255) NOT NULL,
     first_name VARCHAR(255) NOT NULL,
     last_name VARCHAR(255) NOT NULL,
-    permission VARCHAR(255) NOT NULL
+    permission INTEGER NOT NULL
 );
 
 CREATE TABLE sales (
@@ -41,5 +41,14 @@ CREATE TABLE sales (
     cost DECIMAL(10,2) NOT NULL,
     FOREIGN KEY (username) REFERENCES users(username),
     FOREIGN KEY (item_id) REFERENCES inventory(id)
+);
+
+CREATE TABLE logs (
+
+    log_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    type VARCHAR(255) NOT NULL,
+    message VARCHAR(255) NOT NULL,
+    log_time DATETIME NOT NULL
+
 );
 

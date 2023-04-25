@@ -1,38 +1,82 @@
-{% extends "layout.html"%}
-{% block content%}
+{% extends "adminToolLayout.html"%}
+{% block workspace%}
 
-<h1>Roles Page</h1>
+<h2>Roles Page</h2>
+
+<table>
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Permissions</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    {% for role in roles %}
+
+    <tr>
+        <td>{{role.username}}</td>
+        <td>{{role.first_name}}</td>
+        <td>{{role.last_name}}</td>
+        <td>{{role.email}}</td>
+        <td>
+            
+            {%if (role.permission == 0)%}
+                User
+            {%elif (role.permission == 1)%}
+                Admin
+            {%elif (role.permission == 2)%}
+                Employee
+            {%else %}
+                Unknown
+            {%endif%}
+
+        </td>
+    
+    {% endfor %}
+    </tbody>
+    </table>
 
 
-<div class="row">
+<h2>Add User</h2>
 
-<div class="col-md-6">
+<form action="/admin/roles" method="post">
 
-<h2>Admin Tools | Roles</h2>
+<input type="text" name="username" placeholder="username"></input>
+
+<input type="text" name="first_name" placeholder="first name"></input>
+
+<input type="text" name="last_name" placeholder="last name"></input>
+
+<input type="text" name="email" placeholder="email"></input>
+
+<input type="text" name="password" placeholder="password"></input>
+
+<label>
+    <input type="radio" name="role" value="0" checked>
+    User
+  </label>
+  
+  <label>
+    <input type="radio" name="role" value="1">
+    Admin
+  </label>
+  
+  <label>
+    <input type="radio" name="role" value="2">
+    Employee
+  </label>
+  
 
 
 
-</div>
 
-<div class="col-md-6">
-
-<h2>Logs</h2>
-
-<ul>
-
-{% for log in logs %}
-
-<li>{{log}}</li>
-
-{% endfor %}
-
-</ul>
-
-</div>
-
-</div>
+    <input type="submit" name="roles_button" value="add_user"></input>
 
 
-
+</form>
 
 {% endblock%}

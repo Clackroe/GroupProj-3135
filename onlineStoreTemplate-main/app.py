@@ -41,11 +41,10 @@ def admin_page():
         - None
     """
 
-    return render_template('adminDash.html')
+    return render_template('adminDash.html', logs=db.get_all_logs())
 
 @app.route('/admin', methods=['POST'])
 def admin_tools():
-    
     
     admin_tool= request.form['admin_tool']
     
@@ -55,15 +54,34 @@ def admin_tools():
         
 @app.route('/admin/roles')
 def roles():
-    return render_template('roles.html')
+    roles = db.get_all_user_information()
+    logs = db.get_all_logs()
+    return render_template('roles.html', roles=roles, logs=logs)
+
+@app.route('/admin/roles', methods=['POST'])
+def roles_tools():
+
+    username = request.form['username']
+    password = request.form['password']
+    first_name = request.form['first_name']
+    last_name = request.form['last_name']
+    email = request.form['email']
+    role = int(request.form['role'])
+    
+    salt, key = hash_password(password)
+    update_passwords(username, key, salt)
+    
+    db.insert_user(username, key, email, first_name, last_name, role)
+    return redirect(url_for("roles"))
+
 
 @app.route('/admin/stock')
 def stock():
-    return render_template('stock.html')
+    return render_template('stock.html', logs=db.get_all_logs())
 
 @app.route('/admin/perms')
 def perms():
-    return render_template('perms.html')
+    return render_template('perms.html', logs=db.get_all_logs())
 
 @app.route('/login')
 def login_page():

@@ -1,14 +1,14 @@
 INSERT into `users` (`username`, `password_hash`, `email`, `first_name`, `last_name`, `permission`)
-VALUES ('aturing', 'b93727798b520dc10d145b53909c061f082ff14cd5f8cb4ab24c3b71bfa57d7e12e1296029be74c06a0d91ba32756f9fc978047fbe7232be67f94dfc1de9ced9', 'alan@enigma.com', 'Alan', 'Turing', 'admin');
+VALUES ('aturing', 'b93727798b520dc10d145b53909c061f082ff14cd5f8cb4ab24c3b71bfa57d7e12e1296029be74c06a0d91ba32756f9fc978047fbe7232be67f94dfc1de9ced9', 'alan@enigma.com', 'Alan', 'Turing', 1);
 
 INSERT into `users` (`username`, `password_hash`, `email`, `first_name`, `last_name`, `permission`)
-VALUES ('dritchie', '67aff785bd17ac24448d491926ff7aadd8fa75e51a2f7a9bfc31889bad0adcd2989061a27ccd9eff9e5e31f2bc14b5c193727e116dc8dc48259acb3919171cd4', 'dennis@unix.com', 'Dennis', 'Ritchie', 'customer');
+VALUES ('dritchie', '67aff785bd17ac24448d491926ff7aadd8fa75e51a2f7a9bfc31889bad0adcd2989061a27ccd9eff9e5e31f2bc14b5c193727e116dc8dc48259acb3919171cd4', 'dennis@unix.com', 'Dennis', 'Ritchie', 0);
 
 INSERT into `users` (`username`, `password_hash`, `email`, `first_name`, `last_name`, `permission`)
-VALUES ('llamport', '9171d14954eeda4e70777c23d98e349818125cdaeb884ff97ebf8cc0a9c7778f54ce394256588148132a03ebea891e44077c659e6c0132fa87a8cf77e436ae11', 'leslie@paxos.com', 'Leslie', 'Lamport', 'customer');
+VALUES ('llamport', '9171d14954eeda4e70777c23d98e349818125cdaeb884ff97ebf8cc0a9c7778f54ce394256588148132a03ebea891e44077c659e6c0132fa87a8cf77e436ae11', 'leslie@paxos.com', 'Leslie', 'Lamport',0);
 
 INSERT into `users` (`username`, `password_hash`, `email`, `first_name`, `last_name`, `permission`)
-VALUES ('bliskov', '1e4b9ae956cad1385cfa6fffd8323dd16c3fe18c54e6447e49bddef2138d042e84e1505a541c6ef19a5026e684b2559efd366145870a0a8d4d4173c0877f6cd2', 'barbara@thor.com', 'Barbara', 'Liskov', 'customer');
+VALUES ('bliskov', '1e4b9ae956cad1385cfa6fffd8323dd16c3fe18c54e6447e49bddef2138d042e84e1505a541c6ef19a5026e684b2559efd366145870a0a8d4d4173c0877f6cd2', 'barbara@thor.com', 'Barbara', 'Liskov', 0);
 
 /*
 INSERT into `inventory` (`item_name`, `info`, `price`, `stock`, `image_url`, `category`)
@@ -71,3 +71,18 @@ VALUES ( 9876, 2023, 'Ford', 'Shelby GT500', 10, 88000,'static/images/FordShelby
 
 INSERT into `inventory` ( `vin`, `v_year`,`make`, `model`, `mileage` , `price` ,`image_url`, `body_style`)
 VALUES ( 5050, 2023,'Chevrolet', 'Corvette',  12, 97000,'static/images/ChevyCorvette.jpeg', 'Coupe');
+
+
+
+
+INSERT INTO `logs` (`type`, `message`, `log_time`)
+VALUES ('INFO', 'Database initialized1', '2021-12-21 7:30:30');
+
+INSERT INTO `logs` (`type`, `message`, `log_time`)
+VALUES ('INFO', 'Database initialized21', '2021-12-21 7:30:30');
+
+INSERT INTO `logs` (`type`, `message`, `log_time`)
+VALUES ('INFO', 'Database initialized16', '2021-12-21 7:30:30');
+
+INSERT INTO `logs` (`type`, `message`, `log_time`)
+VALUES ('INFO', 'Database initialized134', '2021-12-21 7:30:30');
