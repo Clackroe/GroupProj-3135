@@ -87,6 +87,20 @@ class Database:
     def get_all_vehicle_vin(self):
         self.cursor.execute("SELECT vin FROM inventory")
         return self.cursor.fetchall()
+    
+    def get_full_vehilce_by_vin(self, vin: int):
+        """
+        Gets the sales for a vehicle from the database.
+
+        args:
+            - vin: The vin of the vehicle whose information to get.
+
+        returns:
+            - The sales records for the vehicl with the given vin.
+        """
+        self.cursor.execute(
+            "SELECT * FROM sales WHERE sale_id = ?", (vin,))
+        return self.cursor.fetchone()
 
     #def get_item_name_by_id(self, item_id: int):
     #    """
@@ -708,8 +722,45 @@ class Database:
         self.cursor.execute("SELECT * FROM inventory ORDER BY make")
         return self.cursor.fetchall()
     
+    def get_logs_by_type(self, type: str):
+        
+        self.cursor.execute("SELECT * FROM logs WHERE type = ?", (type,))
+        
+    def insert_new_log(self, message: str, type: str):
+        """
+        Inserts a new log into the database.
 
+        args:
+            - message: The message of the log.
+            - type: The type of the log.
 
-    def sort_by_make_Z_A(self):
-        self.cursor.execute("SELECT * FROM inventory ORDER BY make DESC")
-        return self.cursor.fetchall()
+        returns:
+            - None
+        """
+        self.cursor.execute(
+            "INSERT INTO logs (message, type, log_time) VALUES (?, ?, ?)", (message, type, dt.datetime.now()))
+        self.connection.commit()
+
+    
+    
+    def insert_sale_log(self, sale_id: int):
+        """
+        Inserts a new log into the database.
+
+        args:
+            - sale_id: The id of the sale.
+            - type: The type of the log.
+
+        returns:
+            - None
+        """
+        sale = self.get_full_sale_by_id(sale_id)
+        item = self.get_full_vehilce_by_vin(sale.item_id)
+        message = f"{sale.username} bought a {item.v_year} {item.make} {item.model} for ${sale.price:.2f}"
+        self.cursor.execute(
+            "INSERT INTO logs (message, type, log_time) VALUES (?, ?, ?)", (message, "SALE", dt.datetime.now()))
+        self.connection.commit()
+    
+    def insert_login_log(self, username: str):
+        
+        user = self.get_full

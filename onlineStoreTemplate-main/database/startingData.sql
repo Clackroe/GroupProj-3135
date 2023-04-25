@@ -22,13 +22,13 @@ VALUES ('Mangos', 'The best fruit on the planet.', 4.00, 100, 'static/images/man
 */ 
 
 INSERT into `sales` (`transaction_id`, `username`, `item_id`, `quantity`, `sale_date`, `cost`)
-VALUES ('1', 'aturing', '1', 10, '2022-12-21 7:30:30', 5.50);
+VALUES ('1', 'aturing', '1234', 10, '2022-12-21 7:30:30', 5.50);
 
 INSERT into `sales` (`transaction_id`, `username`, `item_id`, `quantity`, `sale_date`, `cost`)
-VALUES ('2', 'dritchie', '2', 10, '2022-12-21 7:30:30', 5.50);
+VALUES ('2', 'dritchie', '2000', 10, '2022-12-21 7:30:30', 5.50);
 
 INSERT into `sales` (`transaction_id`, `username`, `item_id`, `quantity`, `sale_date`, `cost`)
-VALUES ('3', 'llamport', '3', 10, '2022-12-21 7:30:30', 5.50);
+VALUES ('3', 'llamport', '5050', 10, '2022-12-21 7:30:30', 5.50);
 /*
 INSERT into `inventory` (`make`, 'model' ,`mileage`, `price`, vin ,`color`, `image_url`, `body_style`)
 VALUES ('car make', 'car model', XXXX , XXXX , XXXX ,color str, 'image path', 'vehichle type');
