@@ -26,7 +26,20 @@ def index_page():
     returns:
         - None
     """
-    return render_template('index.html', username=username, products=products, sessions=sessions)
+    
+    hasAdminAccess = False
+    
+    user =db.get_user_by_username(username)
+    if user != None:
+        userAccess = user['permission']
+    
+    
+       
+        if (userAccess != 0):
+            hasAdminAccess = True
+    
+    
+    return render_template('index.html', username=username, products=products, sessions=sessions, hasAdminAccess=hasAdminAccess)
 
 
 @app.route('/admin')

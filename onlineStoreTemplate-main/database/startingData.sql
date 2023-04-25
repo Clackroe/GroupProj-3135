@@ -10,6 +10,9 @@ VALUES ('llamport', '9171d14954eeda4e70777c23d98e349818125cdaeb884ff97ebf8cc0a9c
 INSERT into `users` (`username`, `password_hash`, `email`, `first_name`, `last_name`, `permission`)
 VALUES ('bliskov', '1e4b9ae956cad1385cfa6fffd8323dd16c3fe18c54e6447e49bddef2138d042e84e1505a541c6ef19a5026e684b2559efd366145870a0a8d4d4173c0877f6cd2', 'barbara@thor.com', 'Barbara', 'Liskov', 0);
 
+INSERT into `users` (`username`, `password_hash`, `email`, `first_name`, `last_name`, `permission`)
+VALUES ('admin', '60d7d8727e811c17d0c96decca157551bce395e4817c6981296925eae86a0492ce965c88f12fafce62b3b1ccf7a254f441af83981faba6df37cbac928c158ae5', 'idc', 'admin', 'admin', 1);
+
 /*
 INSERT into `inventory` (`item_name`, `info`, `price`, `stock`, `image_url`, `category`)
 VALUES ('Apples', 'An edible cultivation of the Malus genus.', 2.00, 100, 'static/images/apple.jpeg', 'Fruit');

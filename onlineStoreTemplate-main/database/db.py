@@ -99,7 +99,7 @@ class Database:
             - The sales records for the vehicl with the given vin.
         """
         self.cursor.execute(
-            "SELECT * FROM sales WHERE sale_id = ?", (vin,))
+            "SELECT * FROM inventory WHERE vin = ?", (vin,))
         return self.cursor.fetchone()
 
     #def get_item_name_by_id(self, item_id: int):
@@ -236,6 +236,19 @@ class Database:
         """
         self.cursor.execute("SELECT * FROM users")
         return self.cursor.fetchall()
+    def get_user_by_username(self, username: str):
+        """
+        Gets a user from the database.
+
+        args:
+            - username: The username of the user to get.
+
+        returns:
+            - The user with the given username.
+        """
+        self.cursor.execute(
+            "SELECT * FROM users WHERE username = ?", (username,))
+        return self.cursor.fetchone()
 
     def get_password_hash_by_username(self, username: str):
         """
@@ -726,7 +739,15 @@ class Database:
         
         self.cursor.execute("SELECT * FROM logs WHERE type = ?", (type,))
         
+    def get_all_logs(self):
+        
+        self.cursor.execute("SELECT * FROM logs")
+        
+        return self.cursor.fetchall()
+    
+        
     def insert_new_log(self, message: str, type: str):
+        
         """
         Inserts a new log into the database.
 
@@ -755,12 +776,14 @@ class Database:
             - None
         """
         sale = self.get_full_sale_by_id(sale_id)
-        item = self.get_full_vehilce_by_vin(sale.item_id)
+        item = self.get_full_vehicle_by_vin(sale.item_id)
         message = f"{sale.username} bought a {item.v_year} {item.make} {item.model} for ${sale.price:.2f}"
-        self.cursor.execute(
-            "INSERT INTO logs (message, type, log_time) VALUES (?, ?, ?)", (message, "SALE", dt.datetime.now()))
-        self.connection.commit()
+        self.insert_new_log(message, "SALE")
     
     def insert_login_log(self, username: str):
+        user = self.get_user_by_username(username)
         
-        user = self.get_full
+        message = f"{user.username} logged in"
+        
+        self.insert_new_log(message, "LOGIN")
+        
