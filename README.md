@@ -16,7 +16,7 @@ To run this Flask application, you will need the following:
 
 1. Clone this repository using the following command:
 ```
-git clone https://github.com/your-username/flask-car-shop.git
+git clone https://github.com/clackroe/GroupProj-313
 ```
 
 2. Navigate to the project directory:
