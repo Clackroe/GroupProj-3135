@@ -88,7 +88,7 @@ class Database:
         self.cursor.execute("SELECT vin FROM inventory")
         return self.cursor.fetchall()
     
-    def get_full_vehilce_by_vin(self, vin: int):
+    def get_full_vehicle_by_vin(self, vin: int):
         """
         Gets the sales for a vehicle from the database.
 
@@ -422,7 +422,7 @@ class Database:
         """
         self.cursor.execute(
             "INSERT INTO sales (transaction_id, username, item_id, quantity, sale_date, cost) VALUES (?, ?, ?, ?, ?, ?)",
-            (transaction_id, username, item_id, quantity, sale_date, cost))
+            (transaction_id, username, item_id, 1, sale_date, cost))
         self.connection.commit()
 
     # ------ Getter methods ------
@@ -537,6 +537,19 @@ class Database:
         self.cursor.execute(
             "SELECT * FROM sales WHERE sale_id = ?", (sale_id,))
         return self.cursor.fetchone()
+    def get_full_sale_by_vin(self, vin: int):
+        """
+        Gets the sales for a sale from the database.
+
+        args:
+            - vin: The vin of the sale whose information to get.
+
+        returns:
+            - The sales records for the sale with the given id.
+        """
+        self.cursor.execute(
+            "SELECT * FROM sales WHERE item_id = ?", (vin,))
+        return self.cursor.fetchone()
 
     def get_sales_by_transaction_id(self, transaction_id: int):
         """
@@ -578,7 +591,7 @@ class Database:
         """
         self.cursor.execute(
             "SELECT * FROM sales WHERE item_id = ?", (item_id,))
-        return self.cursor.fetchall()
+        return self.cursor.fetchone()
 
     def get_sales_by_date_range(self, start_date: dt.date, end_date: dt.date):
         """
@@ -775,9 +788,9 @@ class Database:
         returns:
             - None
         """
-        sale = self.get_full_sale_by_id(sale_id)
-        item = self.get_full_vehicle_by_vin(sale.item_id)
-        message = f"{sale.username} bought a {item.v_year} {item.make} {item.model} for ${sale.price:.2f}"
+        sale = self.get_sales_by_item_id(sale_id)
+        item = self.get_full_vehicle_by_vin(sale['item_id'])
+        message = f"{sale['username']} bought a {item['v_year']} {item['make']} {item['model']} for ${sale['cost']:.2f}"
         self.insert_new_log(message, "SALE")
     
     def insert_login_log(self, username: str):

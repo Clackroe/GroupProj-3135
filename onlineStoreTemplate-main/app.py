@@ -7,7 +7,8 @@ from core.session import Sessions
 
 app = Flask(__name__)
 HOST, PORT = 'localhost', 8080
-global username, products, db, sessions
+global username, products, db, sessions, hasAdminAccess
+hasAdminAccess = False
 username = 'default'
 db = Database('database/storeRecords.db')
 products = db.get_full_inventory()
@@ -27,17 +28,6 @@ def index_page():
         - None
     """
     
-    hasAdminAccess = False
-    
-    user =db.get_user_by_username(username)
-    if user != None:
-        userAccess = user['permission']
-    
-    
-       
-        if (userAccess != 0):
-            hasAdminAccess = True
-    
     
     return render_template('index.html', username=username, products=products, sessions=sessions, hasAdminAccess=hasAdminAccess)
 
@@ -54,7 +44,7 @@ def admin_page():
         - None
     """
 
-    return render_template('adminDash.html', logs=db.get_all_logs())
+    return render_template('adminDash.html', logs=db.get_all_logs(), hasAdminAccess=hasAdminAccess)
 
 @app.route('/admin', methods=['POST'])
 def admin_tools():
@@ -69,7 +59,7 @@ def admin_tools():
 def roles():
     roles = db.get_all_user_information()
     logs = db.get_all_logs()
-    return render_template('roles.html', roles=roles, logs=logs)
+    return render_template('roles.html', roles=roles, logs=logs, hasAdminAccess=hasAdminAccess)
 
 @app.route('/admin/roles', methods=['POST'])
 def roles_tools():
@@ -90,11 +80,11 @@ def roles_tools():
 
 @app.route('/admin/stock')
 def stock():
-    return render_template('stock.html', logs=db.get_all_logs())
+    return render_template('stock.html', logs=db.get_all_logs(), hasAdminAccess=hasAdminAccess)
 
 @app.route('/admin/perms')
 def perms():
-    return render_template('perms.html', logs=db.get_all_logs())
+    return render_template('perms.html', logs=db.get_all_logs(), hasAdminAccess=hasAdminAccess)
 
 @app.route('/login')
 def login_page():
@@ -125,14 +115,23 @@ def login():
         - sessions: adds a new session to the sessions object
 
     """
+    global username
+    hasAdminAccess = False
     username = request.form['username']
     password = request.form['password']
     if login_pipeline(username, password):
+        
+        
+        user = db.get_user_by_username(username)
+        
+        if user['permission'] != 0:
+            hasAdminAccess = True
+        
         sessions.add_new_session(username, db)
-        return render_template('home.html', products=products, sessions=sessions)
+        return render_template('home.html', products=products, sessions=sessions, hasAdminAccess=hasAdminAccess)
     else:
         print(f"Incorrect username ({username}) or password ({password}).")
-        return render_template('index.html')
+        return render_template('index.html', hasAdminAccess=hasAdminAccess)
 
 
 @app.route('/register')
@@ -147,7 +146,6 @@ def register_page():
         - None
     """
     return render_template('register.html')
-
 
 @app.route('/register', methods=['POST'])
 def register():
@@ -164,6 +162,7 @@ def register():
         - passwords.txt: adds a new username and password combination to the file
         - database/storeRecords.db: adds a new user to the database
     """
+    
     username = request.form['username']
     password = request.form['password']
     email = request.form['email']
@@ -190,17 +189,23 @@ def checkout():
         - sessions: adds items to the user's cart
     """
     order = {}
+    global username 
     user_session = sessions.get_session(username)
+    itemVins = []
     for item in products:
-        print(f"item ID: {item['id']}")
-        if request.form[str(item['id'])] > '0':
-            count = request.form[str(item['id'])]
-            order[item['item_name']] = count
-            user_session.add_new_item(
-                item['id'], item['item_name'], item['price'], count)
+        print(f"item ID: {item['vin']}")
+        if request.form[str(item['vin'])] > '0':
+            count =1
+            order[item['make']] = count
+            user_session.add_new_item(username,
+                item['vin'], item["make"] + " " + item["model"], item['price'], 1)
+            itemVins.append(item['vin'])
+            print(f"Name: {username} ItemVin: {item['vin']}")
 
     user_session.submit_cart()
 
+    
+        
     return render_template('checkout.html', order=order, sessions=sessions, total_cost=user_session.total_cost)
 
 

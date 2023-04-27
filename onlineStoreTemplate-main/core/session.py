@@ -3,6 +3,8 @@ from datetime import datetime
 from database.db import Database
 # from utils import calculate_cost
 
+db = Database('database/storeRecords.db')
+
 
 class UserSession:
     """
@@ -56,7 +58,7 @@ class UserSession:
         """
         return id in self.cart
 
-    def add_new_item(self, id: str, name: str, price: int, quantity: int, discount: float = 0.0, tax_rate: float = 0.05) -> None:
+    def add_new_item(self, username: str, id: str, name: str, price: int, quantity: int, discount: float = 0.0, tax_rate: float = 0.05) -> None:
         """
         Creates a new item to add to the user's cart.
 
@@ -71,6 +73,8 @@ class UserSession:
         returns:
             - None
         """
+        db.insert_new_log(f"{username} bought a {name}, for ${price}", "SALE")
+        
         self.cart[id] = {"name": name, "price": price, "quantity": quantity,
                          "discount": discount, "tax_rate": tax_rate}
 
@@ -106,7 +110,7 @@ class UserSession:
         """
         Called when the order is submitted. Finalizes user session details.
 
-        args:
+        args:``
             - None
 
         returns:

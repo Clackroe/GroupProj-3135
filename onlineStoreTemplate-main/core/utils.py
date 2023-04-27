@@ -40,7 +40,7 @@ def calculate_cost(price: int, tax_rate: float = 0.05) -> float:
     returns:
         - The cost of the item as a float.
     """
-    return price * (1 + tax_rate)
+    return price 
 
 
 def compare_cost(price1: int, price2: int):
