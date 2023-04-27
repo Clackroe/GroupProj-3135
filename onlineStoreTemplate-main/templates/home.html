@@ -15,10 +15,10 @@
                             <div class="product_card" id="product_card">
                                 <img src="{{ product.image_url }}" class="product_card-img" alt="...">
                                 <div class="product_card-body">
-                                    <h5 class="product_card-title">{{ product.item_name }}</h5>
-                                    <p class="product_card-text">{{ product.info }}</p>
+                                    <h5 class="product_card-title">{{ product.make }} {{product.model}}</h5>
+                                    <p class="product_card-text">{{ product.vin }}</p>
                                     <p class="product_card-price">${{ product.price }}</p>
-                                    <input type="number" class="quantity" id={{product.id}} name={{product.id}}
+                                    <input type="number" class="quantity" id={{product.vin}} name={{product.vin}}
                                         placeholder="0">
                                 </div>
                             </div>

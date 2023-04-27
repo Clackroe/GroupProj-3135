@@ -87,6 +87,20 @@ class Database:
     def get_all_vehicle_vin(self):
         self.cursor.execute("SELECT vin FROM inventory")
         return self.cursor.fetchall()
+    
+    def get_full_vehicle_by_vin(self, vin: int):
+        """
+        Gets the sales for a vehicle from the database.
+
+        args:
+            - vin: The vin of the vehicle whose information to get.
+
+        returns:
+            - The sales records for the vehicl with the given vin.
+        """
+        self.cursor.execute(
+            "SELECT * FROM inventory WHERE vin = ?", (vin,))
+        return self.cursor.fetchone()
 
     #def get_item_name_by_id(self, item_id: int):
     #    """
@@ -222,6 +236,19 @@ class Database:
         """
         self.cursor.execute("SELECT * FROM users")
         return self.cursor.fetchall()
+    def get_user_by_username(self, username: str):
+        """
+        Gets a user from the database.
+
+        args:
+            - username: The username of the user to get.
+
+        returns:
+            - The user with the given username.
+        """
+        self.cursor.execute(
+            "SELECT * FROM users WHERE username = ?", (username,))
+        return self.cursor.fetchone()
 
     def get_password_hash_by_username(self, username: str):
         """
@@ -395,7 +422,7 @@ class Database:
         """
         self.cursor.execute(
             "INSERT INTO sales (transaction_id, username, item_id, quantity, sale_date, cost) VALUES (?, ?, ?, ?, ?, ?)",
-            (transaction_id, username, item_id, quantity, sale_date, cost))
+            (transaction_id, username, item_id, 1, sale_date, cost))
         self.connection.commit()
 
     # ------ Getter methods ------
@@ -510,6 +537,19 @@ class Database:
         self.cursor.execute(
             "SELECT * FROM sales WHERE sale_id = ?", (sale_id,))
         return self.cursor.fetchone()
+    def get_full_sale_by_vin(self, vin: int):
+        """
+        Gets the sales for a sale from the database.
+
+        args:
+            - vin: The vin of the sale whose information to get.
+
+        returns:
+            - The sales records for the sale with the given id.
+        """
+        self.cursor.execute(
+            "SELECT * FROM sales WHERE item_id = ?", (vin,))
+        return self.cursor.fetchone()
 
     def get_sales_by_transaction_id(self, transaction_id: int):
         """
@@ -551,7 +591,7 @@ class Database:
         """
         self.cursor.execute(
             "SELECT * FROM sales WHERE item_id = ?", (item_id,))
-        return self.cursor.fetchall()
+        return self.cursor.fetchone()
 
     def get_sales_by_date_range(self, start_date: dt.date, end_date: dt.date):
         """
@@ -708,8 +748,55 @@ class Database:
         self.cursor.execute("SELECT * FROM inventory ORDER BY make")
         return self.cursor.fetchall()
     
-
-
-    def sort_by_make_Z_A(self):
-        self.cursor.execute("SELECT * FROM inventory ORDER BY make DESC")
+    def get_logs_by_type(self, type: str):
+        
+        self.cursor.execute("SELECT * FROM logs WHERE type = ?", (type,))
+        
+    def get_all_logs(self):
+        
+        self.cursor.execute("SELECT * FROM logs")
+        
         return self.cursor.fetchall()
+    
+        
+    def insert_new_log(self, message: str, type: str):
+        
+        """
+        Inserts a new log into the database.
+
+        args:
+            - message: The message of the log.
+            - type: The type of the log.
+
+        returns:
+            - None
+        """
+        self.cursor.execute(
+            "INSERT INTO logs (message, type, log_time) VALUES (?, ?, ?)", (message, type, dt.datetime.now()))
+        self.connection.commit()
+
+    
+    
+    def insert_sale_log(self, sale_id: int):
+        """
+        Inserts a new log into the database.
+
+        args:
+            - sale_id: The id of the sale.
+            - type: The type of the log.
+
+        returns:
+            - None
+        """
+        sale = self.get_sales_by_item_id(sale_id)
+        item = self.get_full_vehicle_by_vin(sale['item_id'])
+        message = f"{sale['username']} bought a {item['v_year']} {item['make']} {item['model']} for ${sale['cost']:.2f}"
+        self.insert_new_log(message, "SALE")
+    
+    def insert_login_log(self, username: str):
+        user = self.get_user_by_username(username)
+        
+        message = f"{user.username} logged in"
+        
+        self.insert_new_log(message, "LOGIN")
+        
