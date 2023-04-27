@@ -16,15 +16,15 @@ To run this Flask application, you will need the following:
 
 1. Clone this repository using the following command:
 ```
-git clone https://github.com/clackroe/GroupProj-313
+git clone https://github.com/clackroe/GroupProj-3135
 ```
 
 2. Navigate to the project directory:
 ```
-cd flask-car-shop
+cd GroupProj-3135
 ```
 
-3. Create a virtual environment:
+3. Create a virtual environment (optional):
 ```
 python3 -m venv env
 ```
@@ -41,12 +41,12 @@ pip install -r requirements.txt
 
 6. Create the database:
 ```
-python create_db.py
+bash setup.bash
 ```
 
 7. Run the application:
 ```
-flask run
+bash run.sh
 ```
 
 ## Usage
@@ -60,8 +60,9 @@ The following features are currently implemented in the application:
 * Browse all available cars
 * Search for a specific car
 * Add a car to the cart
-* View the cart
 * Checkout the cart and make a purchase
+
+*Checkout the Admin tools with an admin account!
 
 ## Contributing
 
