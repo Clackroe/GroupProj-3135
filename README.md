@@ -64,10 +64,3 @@ The following features are currently implemented in the application:
 
 *Checkout the Admin tools with an admin account!
 
-## Contributing
-
-Contributions are welcome! If you find any bugs or would like to add a new feature, please create a pull request or open an issue.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
