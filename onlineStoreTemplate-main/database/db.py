@@ -799,4 +799,3 @@ class Database:
         message = f"{user.username} logged in"
         
         self.insert_new_log(message, "LOGIN")
-        
