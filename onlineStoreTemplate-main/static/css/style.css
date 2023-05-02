@@ -12,7 +12,7 @@
   #login_button,
   #register_button,
   #add_to_cart_button,
-  #checkout_button {
+  #checkout_button, input[type=submit]{
     background-color: #49f4d8;
     border: none;
     border-radius: 5px;
